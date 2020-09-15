@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Meu primeiro exemplo</string>
+    <string name="informe_seu_userid">Informe seu UserID.</string>
+    <string name="informe_o_t_tulo">Informe o título</string>
+    <string name="informe_descri_o">Informe descrição</string>
+    <string name="adicionar_postar">Adicionar | Postar</string>
+    <string name="bot_o_de_edi_o">botão de edição</string>
+    <string name="bot_o_de_exclus_o">botão de exclusão</string>
+    <string name="estou_na_tela_de_usu_rio">Estou na tela de Usuário</string>
+    <string name="estou_na_tela_de_addres">Estou na tela de Addres</string>
+    <string name="addres">Addres</string>
+    <string name="pessoa">Pessoa</string>
+    <string name="user">User</string>
+    <string name="post">Post</string>
+    <string name="informe_o_postid">Informe o PostID</string>
+    <string name="informe_o_nome">Informe o Nome</string>
+    <string name="informe_o_email">Informe o Email</string>
+    <string name="informe_o_body">Informe o Body</string>
+</resources>
