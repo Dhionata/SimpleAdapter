@@ -16,4 +16,5 @@
     <string name="informe_o_nome">Informe o Nome</string>
     <string name="informe_o_email">Informe o Email</string>
     <string name="informe_o_body">Informe o Body</string>
+    <string name="comments">Comments</string>
 </resources>
