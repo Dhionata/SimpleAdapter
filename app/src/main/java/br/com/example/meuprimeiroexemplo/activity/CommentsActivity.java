@@ -17,7 +17,7 @@ public class CommentsActivity extends DebugActivity {
 
     EditText txtPostId, txtNome, txtEmail,txtBody;
     ListView listViewPost;
-    List<HashMap<String, String>> lista = new ArrayList<>();
+    final List<HashMap<String, String>> lista = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,27 +34,11 @@ public class CommentsActivity extends DebugActivity {
 
         //Processamento
         String postId, nome, email ,body;
+
         postId = txtPostId.getText().toString();
         nome = txtNome.getText().toString();
         email = txtEmail.getText().toString();
         body = txtBody.getText().toString();
-
-        //Agora vamos inicar os trabalhos para o SimpleAdapter
-        //SimpleAdapter precisa de um List<?> extends Map<Spring. ?>
-
-        /*List<String> bla = new ArrayList<>();
-        bla.add("");
-        bla.add("");
-        bla.add("");
-        bla.add("");
-        bla.add("");
-
-        HashMap<String,String> map = new HashMap<>();
-
-        map.put("index1","valor1");
-        map.put("index2","valor2");
-        map.put("index3","valor3");
-        map.put("index4","valor4");*/
 
         HashMap<String, String> map = new HashMap<>();
         map.put("postId", postId);
@@ -66,7 +50,7 @@ public class CommentsActivity extends DebugActivity {
 
         //Saída
 
-        String[] from = {"postId", "nome", "email","body"}; //chaves do map
+        String[] from = {"postId", "nome", "email", "body"}; //chaves do map
         int[] to = {R.id.txtItemPostId, R.id.txtItemNome, R.id.txtItemEmail, R.id.txtItemBody};//ids do layout do tipo "Item"
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, lista, R.layout.comments_item_post, from, to);
 
