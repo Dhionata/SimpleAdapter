@@ -1,6 +1,7 @@
 package br.com.example.meuprimeiroexemplo.activity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -24,7 +25,7 @@ public class CommentsActivity extends DebugActivity {
         setContentView(R.layout.activity_comments);
     }
 
-    public void adicionarPost() {
+    public void adicionarPost(View view) {
         //Entrada
         txtPostId = findViewById(R.id.txtPostId);
         txtNome = findViewById(R.id.txtNome);
