@@ -1,10 +1,9 @@
 package br.com.example.meuprimeiroexemplo.debug;
 
-import android.app.Activity;
-import android.app.AppComponentFactory;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DebugActivity extends AppCompatActivity {
@@ -31,7 +30,7 @@ public class DebugActivity extends AppCompatActivity {
         Log.i(TAG, getClassName() + ".onPause() chamado.");
     }
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         Log.i(TAG, getClassName() + ".onSaveInstanceState() chamado.");
     }

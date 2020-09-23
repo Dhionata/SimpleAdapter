@@ -18,7 +18,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="@string/hint_nome"
-            />
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/textSobreNome"
@@ -26,29 +26,32 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:hint="informe seu sobrenome" />
+            android:hint="@string/informe_seu_sobrenome"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/textEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="informe seu e-mail"
-            android:inputType="textEmailAddress" />
+            android:hint="@string/informe_seu_e_mail"
+            android:inputType="textEmailAddress"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/textPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="informe o phone"
-            android:inputType="phone" />
+            android:hint="@string/informe_o_phone"
+            android:inputType="phone"
+            android:autofillHints="" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Exibir"
+            android:text="@string/exibir"
             android:onClick="exibir"
             />
 
@@ -56,6 +59,7 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/chuck_norris" />
+            app:srcCompat="@drawable/chuck_norris"
+            android:contentDescription="TODO" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

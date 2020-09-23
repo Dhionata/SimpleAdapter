@@ -1,7 +1,5 @@
 package br.com.example.meuprimeiroexemplo.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,7 +19,7 @@ public class HomeActivity extends DebugActivity {
     public void exibir(View view) {
         //
         int opcao = view.getId();
-        Intent intent = null;
+        Intent intent;
 
         switch (opcao){
             case R.id.btnAddres:

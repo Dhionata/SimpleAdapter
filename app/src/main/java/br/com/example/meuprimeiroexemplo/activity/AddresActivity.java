@@ -1,7 +1,5 @@
 package br.com.example.meuprimeiroexemplo.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 import br.com.example.meuprimeiroexemplo.R;
