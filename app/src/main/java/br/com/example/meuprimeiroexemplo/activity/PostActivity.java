@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class PostActivity extends DebugActivity {
 
     EditText txtUserId, txtTitle, txtBody;
     ListView listViewPost;
-    final List<HashMap<String, String>> lista = new ArrayList<>();
+    final List<HashMap<String, String>> lista = new ArrayList<>(); //2 - Melancia - Melancia faz bem pro estomago.
     final List<Post> postagens = new ArrayList<>();
 
     @Override
@@ -60,9 +61,12 @@ public class PostActivity extends DebugActivity {
         map.put("index2","valor2");
         map.put("index3","valor3");
         map.put("index4","valor4");*/
-
-        baseAdapter(userId, title, body);
-    }
+        Switch swithc = findViewById(R.id.switch1);
+        if(swithc.isChecked()){
+            baseAdapter(userId,title,body);
+        }else{
+        simpleAdapter(userId, title, body);
+    }}
 //método
     private void baseAdapter(String userId,String title, String body){
 
@@ -75,6 +79,17 @@ public class PostActivity extends DebugActivity {
         listViewPost.setAdapter(postAdapter);
     }
 
+    private void preencherObjetoLista(String userId, String title, String body) {
+        try {
+            Integer idConvertido = Integer.parseInt(userId);
+            Post post = Post.builder().userId(idConvertido).title(title).body(body).build();
+
+            postagens.add(post);
+        }catch (Exception e){
+            Toast.makeText(this, "-- Erro --"+e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
     private void simpleAdapter(String userId, String title, String body) {
         HashMap<String, String> map = new HashMap<>();
         map.put("userId", userId);
@@ -83,12 +98,18 @@ public class PostActivity extends DebugActivity {
 
         lista.add(map);
 
+            //chave : valor
+        //nome: Dhionatã
+        //endereço: trindade
 
+        //chave == identificar nome: endereço: pais:
+        //valor == dhionatã: trindade: Brasil
         //Saída
 
-        String[] from = {"userId", "title", "body"}; //chaves do map
-        int[] to = {R.id.txtItemUserId, R.id.txtItemTitle, R.id.txtItemBody};//ids do layout do tipo "Item"
-        SimpleAdapter simpleAdapter = new SimpleAdapter(this, lista, R.layout.item_post, from, to);
+        String[] chaves = {"userId", "title", "body"}; //chaves do map
+        int[] vaiPara = {R.id.txtItemUserId, R.id.txtItemTitle, R.id.txtItemBody};//ids do layout do tipo "Item
+
+        SimpleAdapter simpleAdapter = new SimpleAdapter(this, lista, R.layout.item_post, chaves, vaiPara);
 
         listViewPost = findViewById(R.id.listViewPost);
         listViewPost.setAdapter(simpleAdapter);
@@ -102,17 +123,5 @@ public class PostActivity extends DebugActivity {
 
         ArrayAdapter<Post> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, postagens);
         listViewPost.setAdapter(arrayAdapter);
-    }
-
-    private void preencherObjetoLista(String userId, String title, String body) {
-        try {
-            Integer idConvertido = Integer.parseInt(userId);
-            Post post = Post.builder().userId(idConvertido).title(title).body(body).build();
-
-            postagens.add(post);
-        }catch (Exception e){
-            Toast.makeText(this, "-- Erro --"+e.getMessage(), Toast.LENGTH_LONG).show();
-        }
-
     }
 }

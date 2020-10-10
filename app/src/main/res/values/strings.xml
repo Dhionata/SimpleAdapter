@@ -21,4 +21,5 @@
     <string name="informe_seu_sobrenome">informe seu sobrenome</string>
     <string name="exibir">Exibir</string>
     <string name="informe_o_phone">informe o phone</string>
+    <string name="on_baseadapter_noff_simpleadapter">ON = BaseAdapter\nOff = SimpleAdapter</string>
 </resources>
