@@ -14,10 +14,9 @@ public class PeopleAPI {
     public static final String ENDPOINT = "https://swapi.dev/api/people/";
 
     public static Retrofit getClient() {
-        Retrofit retrofit = new Retrofit.Builder()
+        return new Retrofit.Builder()
                 .baseUrl(ENDPOINT)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        return retrofit;
     }
 }
