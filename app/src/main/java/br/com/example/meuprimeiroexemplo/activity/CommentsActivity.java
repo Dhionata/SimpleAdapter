@@ -2,7 +2,6 @@ package br.com.example.meuprimeiroexemplo.activity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -15,7 +14,6 @@ import java.util.List;
 
 import br.com.example.meuprimeiroexemplo.R;
 import br.com.example.meuprimeiroexemplo.adapter.CommentsAdapter;
-import br.com.example.meuprimeiroexemplo.adapter.PostAdapter;
 import br.com.example.meuprimeiroexemplo.debug.DebugActivity;
 import br.com.example.meuprimeiroexemplo.model.Comments;
 import br.com.example.meuprimeiroexemplo.model.Post;
@@ -62,7 +60,7 @@ public class CommentsActivity extends DebugActivity {
     //método
     private void baseAdapter(String postId, String nome, String email, String body) {
 
-        preencherObjetoLista(postId,nome,email, body);
+        preencherObjetoLista(postId, nome, email, body);
 
         listViewPost = findViewById(R.id.listViewPost2);
 
@@ -92,12 +90,26 @@ public class CommentsActivity extends DebugActivity {
 
         lista.add(map);
 
-        String[] chaves = {"postID", "nome", "email","body"}; //chaves do map
-        int[] vaiPara = {R.id.txtItemPostId, R.id.txtItemNome, R.id.txtItemEmail,R.id.txtItemBody2};//ids do layout do tipo "Item
+        String[] chaves = {"postID", "nome", "email", "body"}; //chaves do map
+        int[] vaiPara = {R.id.txtItemPostId, R.id.txtItemNome, R.id.txtItemEmail, R.id.txtItemBody2};//ids do layout do tipo "Item
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, lista, R.layout.comments_item_post, chaves, vaiPara);
 
         listViewPost = findViewById(R.id.listViewPost2);
         listViewPost.setAdapter(simpleAdapter);
+    }
+
+    @Override
+    public String toString() {
+        return "CommentsActivity{" +
+                "txtPostId=" + txtPostId +
+                ", txtNome=" + txtNome +
+                ", txtEmail=" + txtEmail +
+                ", txtBody=" + txtBody +
+                ", listViewPost=" + listViewPost +
+                ", lista=" + lista +
+                ", comments=" + comments +
+                ", postagens=" + postagens +
+                '}';
     }
 }

@@ -17,14 +17,14 @@ public class CommentsAdapter extends BaseAdapter {
     private final Context context;
     private final List<Comments> comments;
 
-    public CommentsAdapter(Context context, List<Comments> comments) {
+    public CommentsAdapter(Context context,List<Comments> comments) {
         this.context = context;
         this.comments = comments;
     }
 
     @Override
     public int getCount() {
-        return this.comments != null ? this.comments.size() : 0;
+        return this.comments.size();
     }
 
     @Override
@@ -49,7 +49,7 @@ public class CommentsAdapter extends BaseAdapter {
         Comments comments = (Comments) getItem(posicao);
 
         //Criar a referência de atributos/objeto java para ser customizar uma listView
-        TextView txtItemPostId,txtItemNome,txtItemEmail,txtItemBody;
+        TextView txtItemPostId, txtItemNome, txtItemEmail, txtItemBody;
 
         txtItemPostId = view.findViewById(R.id.txtItemPostId);
         txtItemNome = view.findViewById(R.id.txtItemNome);

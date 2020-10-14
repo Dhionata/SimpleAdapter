@@ -44,5 +44,12 @@
             android:layout_height="wrap_content"
             android:onClick="exibir"
             android:text="@string/comments" />
+
+        <Button
+            android:id="@+id/btnPeople"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="exibir"
+            android:text="@string/people" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

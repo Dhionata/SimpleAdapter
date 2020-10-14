@@ -21,25 +21,29 @@ public class HomeActivity extends DebugActivity {
         int opcao = view.getId();
         Intent intent;
 
-        switch (opcao){
+        switch (opcao) {
             case R.id.btnAddres:
-                intent = new Intent(this ,AddresActivity.class);
+                intent = new Intent(this, AddresActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnUse:
-                intent = new Intent(this ,UserActivity.class);
+                intent = new Intent(this, UserActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnPessoa:
-                intent = new Intent(this ,PessoaActivity.class);
+                intent = new Intent(this, PessoaActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnPost:
-                intent = new Intent(this,PostActivity.class);
+                intent = new Intent(this, PostActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnComments:
-                intent = new Intent(this,CommentsActivity.class);
+                intent = new Intent(this, CommentsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btnPeople:
+                intent = new Intent(this, PeopleActivity.class);
                 startActivity(intent);
                 break;
             default:
