@@ -17,6 +17,7 @@
         <activity android:name=".activity.CommentsActivity" />
         <activity android:name=".activity.AddresActivity" />
         <activity android:name=".activity.UserActivity" />
+        <activity android:name=".activity.PessoaActivity" />
         <activity android:name=".activity.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +25,5 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.PessoaActivity" />
     </application>
-
 </manifest>
