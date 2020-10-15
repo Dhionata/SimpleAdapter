@@ -55,17 +55,23 @@ public class PeopleActivity extends DebugActivity {
                 @Override
                 public void onResponse(Call<List<People>> call, Response<List<People>> response) {
                     // O método onResponse retorna os dados do recurso(resource) consumido.
-                    List<People> pessoas = response.body();
+                    try {
+                        List<People> pessoas = response.body();
+                        
+                        for (int i = 0; i < pessoas.size(); i++) {
+                            Log.i("post", String.format("%d %s", i,
+                                    pessoas.get(i).toString()));
 
-                    assert pessoas != null;
-                    for (int i = 0; i < pessoas.size(); i++) {
-                        Log.i("post", String.format("%d %s", i,
-                                pessoas.get(i).toString()));
-
-                        baseAdapter(pessoas.get(i).getName(), pessoas.get(i).getHair_color(),
-                                pessoas.get(i).getSkin_color(), pessoas.get(i).getEye_color(),
-                                pessoas.get(i).getBirth_year(), pessoas.get(i).getGender(),
-                                pessoas.get(i).getMass(), pessoas.get(i).getHeight());
+                            baseAdapter(pessoas.get(i).getName(), pessoas.get(i).getHair_color(),
+                                    pessoas.get(i).getSkin_color(), pessoas.get(i).getEye_color(),
+                                    pessoas.get(i).getBirth_year(), pessoas.get(i).getGender(),
+                                    pessoas.get(i).getMass(), pessoas.get(i).getHeight());
+                        }
+                    } catch (Exception e) {
+                        Toast.makeText(getApplicationContext(), "Ocorreu um erro " +
+                                        "no serviço.\n" + e.getMessage(),
+                                Toast.LENGTH_LONG).show();
+                        System.out.println("\n\n" + e.getMessage() + "\n\n");
                     }
                 }
 
