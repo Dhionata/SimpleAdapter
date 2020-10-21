@@ -6,6 +6,9 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +16,7 @@ import br.com.example.meuprimeiroexemplo.R;
 import br.com.example.meuprimeiroexemplo.adapter.PeopleAdapter;
 import br.com.example.meuprimeiroexemplo.bootstrap.PeopleAPI;
 import br.com.example.meuprimeiroexemplo.debug.DebugActivity;
+import br.com.example.meuprimeiroexemplo.model.DefaultModel;
 import br.com.example.meuprimeiroexemplo.model.People;
 import br.com.example.meuprimeiroexemplo.resource.PeopleResource;
 import retrofit2.Call;
@@ -45,19 +49,29 @@ public class PeopleActivity extends DebugActivity {
 
         //Fazer o método/operação pretendido.
 
-        Call<List<People>> lista = postResource.get();
+        Call<DefaultModel> lista = postResource.get();
 
         // Utilizar a estrutura de dados FILA (FIFO) para trabalhar
         //com chamadas assíncronas.
 
         try {
-            lista.enqueue(new Callback<List<People>>() {
+            lista.enqueue(new Callback<DefaultModel>() {
                 @Override
-                public void onResponse(Call<List<People>> call, Response<List<People>> response) {
+                public void onResponse(Call<DefaultModel> call, Response<DefaultModel> response) {
                     // O método onResponse retorna os dados do recurso(resource) consumido.
                     try {
-                        List<People> pessoas = response.body();
-                        
+                        DefaultModel resposta = response.body();
+
+                        //new Gson().toJsonTree(resposta.getResults()).getAsJsonArray().get(0).getAsJsonObject().get("name")
+                        JsonArray jsonObject =
+                                new Gson().toJsonTree(resposta.getResults()).getAsJsonArray();
+
+/*                        LinkedTreeMap<String,String> pessoas =
+                                (LinkedTreeMap<String,String>)resposta.getResults();*/
+
+                        /*List<People> pessoas =
+                                (List<People>) resposta.getResults();
+
                         for (int i = 0; i < pessoas.size(); i++) {
                             Log.i("post", String.format("%d %s", i,
                                     pessoas.get(i).toString()));
@@ -66,21 +80,21 @@ public class PeopleActivity extends DebugActivity {
                                     pessoas.get(i).getSkin_color(), pessoas.get(i).getEye_color(),
                                     pessoas.get(i).getBirth_year(), pessoas.get(i).getGender(),
                                     pessoas.get(i).getMass(), pessoas.get(i).getHeight());
-                        }
+                        }*/
                     } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), "Ocorreu um erro " +
                                         "no serviço.\n" + e.getMessage(),
                                 Toast.LENGTH_LONG).show();
-                        System.out.println("\n\n" + e.getMessage() + "\n\n");
+                        Log.e("app-people", "\n\n" + e.getMessage() + "\n\n");
                     }
                 }
 
                 @Override
-                public void onFailure(Call<List<People>> call, Throwable t) {
+                public void onFailure(Call<DefaultModel> call, Throwable t) {
                     //Método responsável pelos erros.
                     Toast.makeText(getApplicationContext(), "Ocorreu um erro " +
                             "no serviço.\n" + t.getMessage(), Toast.LENGTH_LONG).show();
-                    System.out.println("\n\n" + t.getMessage() + "\n\n");
+                    Log.e("app-people", "\n\n" + t.getMessage() + "\n\n");
                 }
             });
         } catch (Exception e) {
@@ -115,6 +129,7 @@ public class PeopleActivity extends DebugActivity {
             pessoas.add(people);
         } catch (Exception e) {
             Toast.makeText(this, "-- Erro --" + e.getMessage(), Toast.LENGTH_LONG).show();
+            Log.e("app-peole", e.getMessage());
         }
     }
 }

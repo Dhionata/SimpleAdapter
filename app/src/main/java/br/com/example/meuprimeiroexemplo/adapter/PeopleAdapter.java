@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-
 import java.util.List;
 
 import br.com.example.meuprimeiroexemplo.R;
@@ -19,7 +17,7 @@ public class PeopleAdapter extends BaseAdapter {
     private final Context context;
     private final List<People> people;
 
-    public PeopleAdapter(@NonNull Context context, @NonNull List<People> people) {
+    public PeopleAdapter(Context context, List<People> people) {
         this.context = context;
         this.people = people;
     }
@@ -54,7 +52,6 @@ public class PeopleAdapter extends BaseAdapter {
         //Criar a referência de atributos/objeto java para ser customizar uma listView
         TextView txtItemName, txtItemHeight, txtItemMass, txtItemHairColor,
                 txtItemSkinColor, txtItemEyeColor, txtItemBirthYear, txtItemGender;
-
         try {
             txtItemName = view.findViewById(R.id.textName);
             txtItemHeight = view.findViewById(R.id.textHeight);

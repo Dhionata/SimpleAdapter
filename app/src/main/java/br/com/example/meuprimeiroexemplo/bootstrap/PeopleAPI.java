@@ -11,7 +11,7 @@ public class PeopleAPI {
 
     //No retrofit você precisa colocar o  / (slash).
     //Prezado, por gentileza, informar fim de instrução (/) no endereço informado.
-    public static final String ENDPOINT = "https://swapi.dev/api/people/";
+    public static final String ENDPOINT = "https://swapi.dev/api/";
 
     public static Retrofit getClient() {
         return new Retrofit.Builder()

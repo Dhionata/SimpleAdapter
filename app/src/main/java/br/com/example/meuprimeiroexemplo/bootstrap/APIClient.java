@@ -14,10 +14,10 @@ public class APIClient {
     public static final String ENDPOINT = "https://jsonplaceholder.typicode.com/";
 
     public static Retrofit getClient() {
-        Retrofit retrofit = new Retrofit.Builder()
+        return new Retrofit.Builder()
                 .baseUrl(ENDPOINT)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        return retrofit;
     }
 }
+//aonde?

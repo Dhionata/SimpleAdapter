@@ -1,14 +1,11 @@
 package br.com.example.meuprimeiroexemplo.resource;
 
-import java.util.List;
-
+import br.com.example.meuprimeiroexemplo.model.DefaultModel;
 import br.com.example.meuprimeiroexemplo.model.People;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
-import retrofit2.http.HEAD;
-import retrofit2.http.OPTIONS;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -19,24 +16,24 @@ public interface PeopleResource<T, E> {
     @POST("people")
     Call<People> post(@Body People people);
 
-    @GET("{id}")
+    @GET("people/{id}")
     Call<People> get(@Path("id") Integer id);
 
     @GET("people")
-    Call<List<People>> get();
+    Call<DefaultModel> get();
 
-    @PUT("{id}")
+    @PUT("people/{id}")
     Call<Void> put(@Path("id") Integer id, @Body People people);
 
-    @PATCH("{id}")
-    Call<Void> patch(@Path("id") Integer id);
+    @PATCH("people/{id}")
+    Call<Void> patch(@Path("id") Integer id, @Body People people);
 
-    @DELETE("{id}")
+    @DELETE("people/{id}")
     Call<Void> delete(@Path("id") Integer id);
 
-    @OPTIONS
+/*    @OPTIONS
     Call<Void> options();
 
     @HEAD
-    Call<Void> head();
+    Call<Void> head();*/
 }

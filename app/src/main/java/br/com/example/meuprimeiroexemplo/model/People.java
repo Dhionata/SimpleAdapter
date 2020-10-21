@@ -1,5 +1,11 @@
 package br.com.example.meuprimeiroexemplo.model;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,11 +17,44 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class People {
-    private Integer id, height, mass, birth_year;
-    private String name, hair_color, skin_color, eye_color, gender;
-}
+public class People implements Serializable {
+    //Integer
+    @SerializedName("id")
+    private Integer id;
+    @SerializedName("height")
+    private Integer height;
+    @SerializedName("mass")
+    private Integer mass;
+    @SerializedName("birth_year")
+    private Integer birth_year;
+    //String
+    @SerializedName("name")
+    private String name;
+    @SerializedName("hair_color")
+    private String hair_color;
+    @SerializedName("skin_color")
+    private String skin_color;
+    @SerializedName("eye_color")
+    private String eye_color;
+    @SerializedName("gender")
+    private String gender;
+    @SerializedName("homeworld")
+    private String homeworld;
+    @SerializedName("created")
+    private String created;
+    @SerializedName("edited")
+    private String edited;
+    @SerializedName("url")
+    private String url;
+    //Listas
 
+    private List<String> films = new ArrayList<>();
+    private List<String> species = new ArrayList<>();
+    private List<String> vehicles = new ArrayList<>();
+    private List<String> starships = new ArrayList<>();
+
+}
+//esse é oq estaria na api -> 15 kkkk mas acho q ele n tá pegando no prof.
 /*{
 	"name": "Luke Skywalker",
 	"height": "172",
@@ -25,7 +64,9 @@ public class People {
 	"eye_color": "blue",
 	"birth_year": "19BBY",
 	"gender": "male",
-	"homeworld": "http://swapi.dev/api/planets/1/",
+	"homeworld": "http://swapi.dev/api/planets/1/", esse vai retornar um
+	outro objeto... n é n prof. ele vai retornar as informações desse
+	endereço, é um objeto do tipo planeta...
 	"films": [
 		"http://swapi.dev/api/films/1/",
 		"http://swapi.dev/api/films/2/",
