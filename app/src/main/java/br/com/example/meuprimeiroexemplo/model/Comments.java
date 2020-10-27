@@ -12,6 +12,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Comments {
-    private Integer postId, id;
-    private String nome, email, body;
+    private Integer id;
+    private Integer postId;
+    private String name;
+    private String email;
+    private String body;
 }

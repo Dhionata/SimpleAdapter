@@ -1,11 +1,11 @@
 package br.com.example.meuprimeiroexemplo.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -14,9 +14,14 @@ import java.util.List;
 
 import br.com.example.meuprimeiroexemplo.R;
 import br.com.example.meuprimeiroexemplo.adapter.CommentsAdapter;
+import br.com.example.meuprimeiroexemplo.bootstrap.APIClient;
 import br.com.example.meuprimeiroexemplo.debug.DebugActivity;
 import br.com.example.meuprimeiroexemplo.model.Comments;
-import br.com.example.meuprimeiroexemplo.model.Post;
+import br.com.example.meuprimeiroexemplo.resource.CommentsResource;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class CommentsActivity extends DebugActivity {
 
@@ -24,7 +29,7 @@ public class CommentsActivity extends DebugActivity {
     ListView listViewPost;
     final List<HashMap<String, String>> lista = new ArrayList<>();
     final List<Comments> comments = new ArrayList<>();
-    final List<Post> postagens = new ArrayList<>();
+    //final List<Post> postagens = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,53 +39,69 @@ public class CommentsActivity extends DebugActivity {
 
     public void adicionarPost(View view) {
         //Entrada
-        txtPostId = findViewById(R.id.txtPostId);
-        txtNome = findViewById(R.id.txtNome);
-        txtEmail = findViewById(R.id.txtEmail);
-        txtBody = findViewById(R.id.txtBody);
 
-        //Processamento
-        String postId, nome, email, body;
+        Retrofit retrofit = APIClient.getClient();
+        CommentsResource commentsResource = retrofit.create(CommentsResource.class);
 
-        postId = txtPostId.getText().toString();
-        nome = txtNome.getText().toString();
-        email = txtEmail.getText().toString();
-        body = txtBody.getText().toString();
+        Call<List<Comments>> chamada = commentsResource.get();
 
-        Switch swithc = findViewById(R.id.switch2);
-        if (swithc.isChecked()) {
-            System.out.println("base sendo usado");
-            baseAdapter(postId, nome, email, body);
-        } else {
-            System.out.println("simple sendo usado");
-            simpleAdapter(postId, nome, email, body);
-        }
+        chamada.enqueue(new Callback<List<Comments>>() {
+            @Override
+            public void onResponse(Call<List<Comments>> call,
+                                   Response<List<Comments>> response) {
+                List<Comments> postagens = response.body();
+                for (Comments c : postagens) {
+                    baseAdapter(c.getPostId(), c.getId(), c.getName(),
+                            c.getEmail(),
+                            c.getBody());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Comments>> call, Throwable t) {
+                Log.i("Falha na comunicação\n", t.getMessage());
+                Toast.makeText(getApplicationContext(), "-- Erro --" + t.getMessage(),
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+
+        Button b = findViewById(R.id.btnAddPost);
+        b.setClickable(false);
+
+        Toast.makeText(getApplicationContext(), "Você não pode mais clicar!",
+                Toast.LENGTH_LONG).show();
     }
 
     //método
-    private void baseAdapter(String postId, String nome, String email, String body) {
+    private void baseAdapter(Integer postId, Integer id, String nome,
+                             String email,
+                             String body) {
 
-        preencherObjetoLista(postId, nome, email, body);
+        preencherObjetoLista(postId, id, nome, email, body);
 
-        listViewPost = findViewById(R.id.listViewPost2);
+        listViewPost = findViewById(R.id.listViewComments);
 
-        CommentsAdapter postAdapter = new CommentsAdapter(this, comments);
+        CommentsAdapter commentsAdapter = new CommentsAdapter(getApplicationContext(), comments);
 
-        listViewPost.setAdapter(postAdapter);
+        listViewPost.setAdapter(commentsAdapter);
     }
 
-    private void preencherObjetoLista(String postId, String nome, String email, String body) {
+    private void preencherObjetoLista(Integer postId, Integer id, String name,
+                                      String email,
+                                      String body) {
         try {
-            Integer idConvertido = Integer.parseInt(postId);
-            Comments post = Comments.builder().postId(idConvertido).nome(nome).email(email).body(body).build();
+            Comments comment =
+                    Comments.builder().postId(postId).id(id).name(name).email(email).body(body).build();
 
-            comments.add(post);
+            comments.add(comment);
         } catch (Exception e) {
-            Toast.makeText(this, "-- Erro --" + e.getMessage(), Toast.LENGTH_LONG).show();
+            Log.i("prencherObjetoLista\n\n\"", e.getMessage());
+            Toast.makeText(getApplicationContext(),
+                    "-- Erro --\n\n" + e.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 
-    private void simpleAdapter(String postId, String nome, String email, String body) {
+    /*private void simpleAdapter(String postId, String nome, String email, String body) {
         //postId,nome, email, body
         HashMap<String, String> map = new HashMap<>();
         map.put("postId", postId);
@@ -97,9 +118,9 @@ public class CommentsActivity extends DebugActivity {
 
         listViewPost = findViewById(R.id.listViewPost2);
         listViewPost.setAdapter(simpleAdapter);
-    }
+    }*/
 
-    @Override
+   /* @Override
     public String toString() {
         return "CommentsActivity{" +
                 "txtPostId=" + txtPostId +
@@ -111,5 +132,5 @@ public class CommentsActivity extends DebugActivity {
                 ", comments=" + comments +
                 ", postagens=" + postagens +
                 '}';
-    }
+    }*/
 }

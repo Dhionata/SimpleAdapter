@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtItemPostIdStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/post_id" />
 
         <TextView
             android:id="@+id/txtItemPostId"
@@ -16,10 +23,37 @@
             android:layout_weight="1" />
 
         <TextView
+            android:id="@+id/txtItemIdStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="id" />
+
+        <TextView
+            android:id="@+id/txtItemId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/txtItemNomeStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/nome" />
+
+        <TextView
             android:id="@+id/txtItemNome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/textItemEmailStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/e_mail" />
 
         <TextView
             android:id="@+id/txtItemEmail"
@@ -28,25 +62,17 @@
             android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/txtItemBody2"
+            android:id="@+id/txtItemBodyStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/body" />
+
+        <TextView
+            android:id="@+id/txtItemBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
-
-        <ImageButton
-            android:id="@+id/btnEditar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="@string/bot_o_de_edi_o"
-            app:srcCompat="@drawable/editar" />
-
-        <ImageButton
-            android:id="@+id/btnExcluir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:contentDescription="@string/bot_o_de_exclus_o"
-            app:srcCompat="@drawable/deletar" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,11 +37,12 @@
             android:hint="@string/informe_descri_o"
             android:inputType="textPersonName" />
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switch1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/on_baseadapter_noff_simpleadapter" />
+            android:text="On = BaseAdapter\nOff = SimpleAdapter"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/btnAddPost"

@@ -17,4 +17,6 @@
     <string name="informe_seu_sobrenome">informe seu sobrenome</string>
     <string name="exibir">Exibir</string>
     <string name="informe_o_phone">informe o phone</string>
+    <string name="nome">Nome</string>
+    <string name="usar_api">Usar API</string>
 </resources>

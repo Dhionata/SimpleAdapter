@@ -23,31 +23,31 @@ public class HomeActivity extends DebugActivity {
 
         switch (opcao) {
             case R.id.btnAddres:
-                intent = new Intent(this, AddresActivity.class);
+                intent = new Intent(getApplicationContext(), AddresActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnUse:
-                intent = new Intent(this, UserActivity.class);
+                intent = new Intent(getApplicationContext(), UserActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnPessoa:
-                intent = new Intent(this, PessoaActivity.class);
+                intent = new Intent(getApplicationContext(), PessoaActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnPost:
-                intent = new Intent(this, PostActivity.class);
+                intent = new Intent(getApplicationContext(), PostActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnComments:
-                intent = new Intent(this, CommentsActivity.class);
+                intent = new Intent(getApplicationContext(), CommentsActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnPeople:
-                intent = new Intent(this, PeopleActivity.class);
+                intent = new Intent(getApplicationContext(), PeopleActivity.class);
                 startActivity(intent);
                 break;
             default:
-                Toast.makeText(this, "Opção inválida.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Opção inválida.", Toast.LENGTH_LONG).show();
                 break;
         }
     }

@@ -45,11 +45,11 @@ public class PeopleActivity extends DebugActivity {
         //Fazer a Inverção de Controle e injeção de dependência da interface
         //(contrato) PostResource
 
-        PeopleResource postResource = retrofit.create(PeopleResource.class);
+        PeopleResource peopleResource = retrofit.create(PeopleResource.class);
 
         //Fazer o método/operação pretendido.
 
-        Call<DefaultModel> lista = postResource.get();
+        Call<DefaultModel> lista = peopleResource.get();
 
         // Utilizar a estrutura de dados FILA (FIFO) para trabalhar
         //com chamadas assíncronas.
@@ -66,13 +66,9 @@ public class PeopleActivity extends DebugActivity {
                         JsonArray jsonObject =
                                 new Gson().toJsonTree(resposta.getResults()).getAsJsonArray();
 
-/*                        LinkedTreeMap<String,String> pessoas =
-                                (LinkedTreeMap<String,String>)resposta.getResults();*/
+                        List<People> pessoas = null;
 
-                        /*List<People> pessoas =
-                                (List<People>) resposta.getResults();
-
-                        for (int i = 0; i < pessoas.size(); i++) {
+                        for (int i = 0; i < jsonObject.size(); i++) {
                             Log.i("post", String.format("%d %s", i,
                                     pessoas.get(i).toString()));
 
@@ -80,7 +76,7 @@ public class PeopleActivity extends DebugActivity {
                                     pessoas.get(i).getSkin_color(), pessoas.get(i).getEye_color(),
                                     pessoas.get(i).getBirth_year(), pessoas.get(i).getGender(),
                                     pessoas.get(i).getMass(), pessoas.get(i).getHeight());
-                        }*/
+                        }
                     } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), "Ocorreu um erro " +
                                         "no serviço.\n" + e.getMessage(),
@@ -98,7 +94,7 @@ public class PeopleActivity extends DebugActivity {
                 }
             });
         } catch (Exception e) {
-            System.out.println("--Deu ruim...--\n" + e.getMessage());
+            Log.i("-- Deu ruim... --\n", "-- Erro --\n\n" + e.getMessage());
         }
     }
 
@@ -111,7 +107,7 @@ public class PeopleActivity extends DebugActivity {
 
         listViewPeople = findViewById(R.id.peopleList);
 
-        PeopleAdapter peopleAdapter = new PeopleAdapter(this, pessoas);
+        PeopleAdapter peopleAdapter = new PeopleAdapter(getApplicationContext(), pessoas);
 
         listViewPeople.setAdapter(peopleAdapter);
     }
@@ -128,8 +124,8 @@ public class PeopleActivity extends DebugActivity {
 
             pessoas.add(people);
         } catch (Exception e) {
-            Toast.makeText(this, "-- Erro --" + e.getMessage(), Toast.LENGTH_LONG).show();
-            Log.e("app-peole", e.getMessage());
+            Toast.makeText(getApplicationContext(), "-- Erro --" + e.getMessage(), Toast.LENGTH_LONG).show();
+            Log.i("app-peole", e.getMessage());
         }
     }
 }

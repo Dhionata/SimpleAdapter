@@ -28,7 +28,7 @@ public class PeopleAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
+    public People getItem(int i) {
         return this.people.get(i);
     }
 
@@ -47,7 +47,7 @@ public class PeopleAdapter extends BaseAdapter {
         }
 
         //Procura o item dentro da lista para ser 'exibido' na listView
-        People people = (People) getItem(posicao);
+        People people = getItem(posicao);
 
         //Criar a referência de atributos/objeto java para ser customizar uma listView
         TextView txtItemName, txtItemHeight, txtItemMass, txtItemHairColor,

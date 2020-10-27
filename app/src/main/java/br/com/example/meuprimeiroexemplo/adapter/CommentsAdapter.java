@@ -17,7 +17,7 @@ public class CommentsAdapter extends BaseAdapter {
     private final Context context;
     private final List<Comments> comments;
 
-    public CommentsAdapter(Context context,List<Comments> comments) {
+    public CommentsAdapter(Context context, List<Comments> comments) {
         this.context = context;
         this.comments = comments;
     }
@@ -28,7 +28,7 @@ public class CommentsAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
+    public Comments getItem(int i) {
         return this.comments.get(i);
     }
 
@@ -46,18 +46,21 @@ public class CommentsAdapter extends BaseAdapter {
         }
 
         //Procura o item dentro da lista para ser 'exibido' na listView
-        Comments comments = (Comments) getItem(posicao);
+        Comments comments = getItem(posicao);
 
         //Criar a referência de atributos/objeto java para ser customizar uma listView
-        TextView txtItemPostId, txtItemNome, txtItemEmail, txtItemBody;
+        TextView txtItemPostId, txtItemId, txtItemNome, txtItemEmail,
+                txtItemBody;
 
         txtItemPostId = view.findViewById(R.id.txtItemPostId);
+        txtItemId = view.findViewById(R.id.txtItemId);
         txtItemNome = view.findViewById(R.id.txtItemNome);
         txtItemEmail = view.findViewById(R.id.txtItemEmail);
-        txtItemBody = view.findViewById(R.id.txtItemBody2);
+        txtItemBody = view.findViewById(R.id.txtItemBody);
 
         txtItemPostId.setText(String.valueOf(comments.getPostId()));
-        txtItemNome.setText(comments.getNome());
+        txtItemId.setText(String.valueOf(comments.getId()));
+        txtItemNome.setText(comments.getName());
         txtItemEmail.setText(comments.getEmail());
         txtItemBody.setText(comments.getBody());
 

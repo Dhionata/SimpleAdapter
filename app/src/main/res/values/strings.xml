@@ -21,7 +21,6 @@
     <string name="informe_seu_sobrenome">informe seu sobrenome</string>
     <string name="exibir">Exibir</string>
     <string name="informe_o_phone">informe o phone</string>
-    <string name="on_baseadapter_noff_simpleadapter">ON = BaseAdapter\nOff = SimpleAdapter</string>
     <string name="people">People</string>
     <string name="name">Name</string>
     <string name="height">Height</string>
@@ -31,4 +30,11 @@
     <string name="eye_color">Eye Color</string>
     <string name="birth_year">Birth Year</string>
     <string name="gender">Gender</string>
+    <string name="post_id">Post ID</string>
+    <string name="nome">Nome</string>
+    <string name="e_mail">E-mail</string>
+    <string name="body">Body</string>
+    <string name="id">Id</string>
+    <string name="chuck_norris">Chuck Norris</string>
+    <string name="usar_api">Usar API</string>
 </resources>

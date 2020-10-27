@@ -28,7 +28,7 @@ public class PostAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
+    public Post getItem(int i) {
         return this.postagens.get(i);
     }
 
@@ -46,10 +46,10 @@ public class PostAdapter extends BaseAdapter {
         }
 
         //Procura o item dentro da lista para ser 'exibido' na listView
-        Post post = (Post) getItem(posicao);
+        Post post = getItem(posicao);
 
         //Criar a referência de atributos/objeto java para ser customizar uma listView
-        TextView txtItemUserId,txtItemTitle,txtItemBody;
+        TextView txtItemUserId, txtItemTitle, txtItemBody;
 
         txtItemUserId = view.findViewById(R.id.txtItemUserId);
         txtItemTitle = view.findViewById(R.id.txtItemTitle);
