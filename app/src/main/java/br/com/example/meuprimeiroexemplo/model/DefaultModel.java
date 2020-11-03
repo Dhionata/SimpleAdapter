@@ -1,7 +1,5 @@
 package br.com.example.meuprimeiroexemplo.model;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +20,10 @@ public class DefaultModel implements Serializable {
     private Integer count;
     private String next;
     private String previous;
-    @SerializedName("results")
-    //foi eu n em..
-    private List results = new ArrayList<People>();
+    //@SerializedName("results")
+    private List<People> results = new ArrayList<>();
+
+//prof. será q colocar um arraylist em vez de list n dá certo n ?
       /*  "count":82,
                 "next":"http://swapi.dev/api/people/?page=2",
                 "previous":null,*/

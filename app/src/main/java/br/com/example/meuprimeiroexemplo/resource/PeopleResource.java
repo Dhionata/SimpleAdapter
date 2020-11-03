@@ -31,9 +31,4 @@ public interface PeopleResource<T, E> {
     @DELETE("people/{id}")
     Call<Void> delete(@Path("id") Integer id);
 
-/*    @OPTIONS
-    Call<Void> options();
-
-    @HEAD
-    Call<Void> head();*/
 }

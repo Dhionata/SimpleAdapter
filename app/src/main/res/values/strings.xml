@@ -34,7 +34,6 @@
     <string name="nome">Nome</string>
     <string name="e_mail">E-mail</string>
     <string name="body">Body</string>
-    <string name="id">Id</string>
     <string name="chuck_norris">Chuck Norris</string>
     <string name="usar_api">Usar API</string>
 </resources>

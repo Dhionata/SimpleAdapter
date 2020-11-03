@@ -21,25 +21,29 @@ public class People implements Serializable {
     //Integer
     @SerializedName("id")
     private Integer id;
+    @SerializedName("name")
+    private String name;
     @SerializedName("height")
     private Integer height;
     @SerializedName("mass")
     private Integer mass;
-    @SerializedName("birth_year")
-    private Integer birth_year;
-    //String
-    @SerializedName("name")
-    private String name;
     @SerializedName("hair_color")
     private String hair_color;
     @SerializedName("skin_color")
     private String skin_color;
     @SerializedName("eye_color")
     private String eye_color;
+    @SerializedName("birth_year")
+    private Integer birth_year;
     @SerializedName("gender")
     private String gender;
+    //String
     @SerializedName("homeworld")
     private String homeworld;
+    private List<String> films = new ArrayList<>();
+    private List<String> species = new ArrayList<>();
+    private List<String> vehicles = new ArrayList<>();
+    private List<String> starships = new ArrayList<>();
     @SerializedName("created")
     private String created;
     @SerializedName("edited")
@@ -47,11 +51,6 @@ public class People implements Serializable {
     @SerializedName("url")
     private String url;
     //Listas
-
-    private List<String> films = new ArrayList<>();
-    private List<String> species = new ArrayList<>();
-    private List<String> vehicles = new ArrayList<>();
-    private List<String> starships = new ArrayList<>();
 
 }
 //esse é oq estaria na api -> 15 kkkk mas acho q ele n tá pegando no prof.

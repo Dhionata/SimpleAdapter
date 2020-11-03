@@ -6,9 +6,6 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,10 +47,9 @@ public class PeopleActivity extends DebugActivity {
         //Fazer o método/operação pretendido.
 
         Call<DefaultModel> lista = peopleResource.get();
-
+//psé... tentei.. kkk
         // Utilizar a estrutura de dados FILA (FIFO) para trabalhar
         //com chamadas assíncronas.
-
         try {
             lista.enqueue(new Callback<DefaultModel>() {
                 @Override
@@ -61,14 +57,13 @@ public class PeopleActivity extends DebugActivity {
                     // O método onResponse retorna os dados do recurso(resource) consumido.
                     try {
                         DefaultModel resposta = response.body();
-
                         //new Gson().toJsonTree(resposta.getResults()).getAsJsonArray().get(0).getAsJsonObject().get("name")
-                        JsonArray jsonObject =
-                                new Gson().toJsonTree(resposta.getResults()).getAsJsonArray();
+                        /*JsonArray jsonObject =
+                                new Gson().toJsonTree(resposta.getResults()).getAsJsonArray();*/
 
-                        List<People> pessoas = null;
+                        List<People> pessoas = resposta.getResults();
 
-                        for (int i = 0; i < jsonObject.size(); i++) {
+                        for (int i = 0; i < pessoas.size(); i++) {
                             Log.i("post", String.format("%d %s", i,
                                     pessoas.get(i).toString()));
 
@@ -79,9 +74,10 @@ public class PeopleActivity extends DebugActivity {
                         }
                     } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), "Ocorreu um erro " +
-                                        "no serviço.\n" + e.getMessage(),
+                                        "no processamento.\n\n" + e.getMessage(),
                                 Toast.LENGTH_LONG).show();
-                        Log.e("app-people", "\n\n" + e.getMessage() + "\n\n");
+                        Log.e("lista -- Erro", "\n\n" + e.getMessage() + "\n" +
+                                "\n");
                     }
                 }
 
@@ -96,20 +92,6 @@ public class PeopleActivity extends DebugActivity {
         } catch (Exception e) {
             Log.i("-- Deu ruim... --\n", "-- Erro --\n\n" + e.getMessage());
         }
-    }
-
-    private void baseAdapter(String nome, String corDoCabelo, String corDePele,
-                             String corDosOlhos, Integer anoDeNascimento,
-                             String genero, Integer massa, Integer altura) {
-
-        preencherObjetoLista(nome, corDoCabelo, altura, corDePele, corDosOlhos,
-                anoDeNascimento, genero, massa);
-
-        listViewPeople = findViewById(R.id.peopleList);
-
-        PeopleAdapter peopleAdapter = new PeopleAdapter(getApplicationContext(), pessoas);
-
-        listViewPeople.setAdapter(peopleAdapter);
     }
 
     private void preencherObjetoLista(String nome, String corDoCabelo,
@@ -127,5 +109,19 @@ public class PeopleActivity extends DebugActivity {
             Toast.makeText(getApplicationContext(), "-- Erro --" + e.getMessage(), Toast.LENGTH_LONG).show();
             Log.i("app-peole", e.getMessage());
         }
+    }
+
+    private void baseAdapter(String nome, String corDoCabelo, String corDePele,
+                             String corDosOlhos, Integer anoDeNascimento,
+                             String genero, Integer massa, Integer altura) {
+
+        preencherObjetoLista(nome, corDoCabelo, altura, corDePele, corDosOlhos,
+                anoDeNascimento, genero, massa);
+
+        listViewPeople = findViewById(R.id.peopleList);
+
+        PeopleAdapter peopleAdapter = new PeopleAdapter(getApplicationContext(), pessoas);
+
+        listViewPeople.setAdapter(peopleAdapter);
     }
 }
