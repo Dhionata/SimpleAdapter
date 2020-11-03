@@ -1,6 +1,7 @@
 package br.com.example.meuprimeiroexemplo.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,8 +72,7 @@ public class PeopleAdapter extends BaseAdapter {
             txtItemBirthYear.setText(String.valueOf(people.getBirth_year()));
             txtItemGender.setText(people.getGender());
         } catch (Exception e) {
-            System.out.println("-- Deu ruim --");
-            e.printStackTrace();
+            Log.e("fasam", "Deu ruim gometizado..."+e.getMessage());
         }
         return view;
     }

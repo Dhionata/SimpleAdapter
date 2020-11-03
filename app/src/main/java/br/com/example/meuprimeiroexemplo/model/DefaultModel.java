@@ -20,7 +20,6 @@ public class DefaultModel implements Serializable {
     private Integer count;
     private String next;
     private String previous;
-    //@SerializedName("results")
     private List<People> results = new ArrayList<>();
 
 //prof. será q colocar um arraylist em vez de list n dá certo n ?
