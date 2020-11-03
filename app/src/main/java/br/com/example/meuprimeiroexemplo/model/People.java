@@ -1,7 +1,5 @@
 package br.com.example.meuprimeiroexemplo.model;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,36 +17,23 @@ import lombok.ToString;
 @NoArgsConstructor
 public class People implements Serializable {
     //Integer
-    @SerializedName("id")
     private Integer id;
-    @SerializedName("name")
     private String name;
-    @SerializedName("height")
-    private Integer height;
-    @SerializedName("mass")
-    private Integer mass;
-    @SerializedName("hair_color")
+    private String height;
+    private String mass;
     private String hair_color;
-    @SerializedName("skin_color")
     private String skin_color;
-    @SerializedName("eye_color")
     private String eye_color;
-    @SerializedName("birth_year")
-    private Integer birth_year;
-    @SerializedName("gender")
+    private String birth_year;
     private String gender;
     //String
-    @SerializedName("homeworld")
     private String homeworld;
     private List<String> films = new ArrayList<>();
     private List<String> species = new ArrayList<>();
     private List<String> vehicles = new ArrayList<>();
     private List<String> starships = new ArrayList<>();
-    @SerializedName("created")
     private String created;
-    @SerializedName("edited")
     private String edited;
-    @SerializedName("url")
     private String url;
     //Listas
 

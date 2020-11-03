@@ -56,22 +56,17 @@ public class PeopleActivity extends DebugActivity {
                 public void onResponse(Call<DefaultModel> call, Response<DefaultModel> response) {
                     // O método onResponse retorna os dados do recurso(resource) consumido.
                     try {
+                        //recebe os dados da lista (paginada) 10 em 10
                         DefaultModel resposta = response.body();
-                        //new Gson().toJsonTree(resposta.getResults()).getAsJsonArray().get(0).getAsJsonObject().get("name")
-                        /*JsonArray jsonObject =
-                                new Gson().toJsonTree(resposta.getResults()).getAsJsonArray();*/
 
-                        List<People> pessoas = resposta.getResults();
+                        //Chamar o adapter para imprimir os dados na listView
+                        PeopleAdapter peopleAdapter = new PeopleAdapter(getApplicationContext(),
+                                resposta.getResults());
 
-                        for (int i = 0; i < pessoas.size(); i++) {
-                            Log.i("post", String.format("%d %s", i,
-                                    pessoas.get(i).toString()));
+                        //Chamar a listView para fazer o bind de informações.
+                        listViewPeople = findViewById(R.id.peopleList);
+                        listViewPeople.setAdapter(peopleAdapter);
 
-                            baseAdapter(pessoas.get(i).getName(), pessoas.get(i).getHair_color(),
-                                    pessoas.get(i).getSkin_color(), pessoas.get(i).getEye_color(),
-                                    pessoas.get(i).getBirth_year(), pessoas.get(i).getGender(),
-                                    pessoas.get(i).getMass(), pessoas.get(i).getHeight());
-                        }
                     } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), "Ocorreu um erro " +
                                         "no processamento.\n\n" + e.getMessage(),
@@ -95,10 +90,10 @@ public class PeopleActivity extends DebugActivity {
     }
 
     private void preencherObjetoLista(String nome, String corDoCabelo,
-                                      Integer altura,
+                                      String altura,
                                       String corDePele, String corDosOlhos,
-                                      Integer anoDeNascimento, String genero,
-                                      Integer massa) {
+                                      String anoDeNascimento, String genero,
+                                      String massa) {
         try {
             People people =
                     People.builder().name(nome).mass(massa).birth_year(anoDeNascimento).gender(genero).eye_color(corDosOlhos).
@@ -112,8 +107,8 @@ public class PeopleActivity extends DebugActivity {
     }
 
     private void baseAdapter(String nome, String corDoCabelo, String corDePele,
-                             String corDosOlhos, Integer anoDeNascimento,
-                             String genero, Integer massa, Integer altura) {
+                             String corDosOlhos, String anoDeNascimento,
+                             String genero, String massa, String altura) {
 
         preencherObjetoLista(nome, corDoCabelo, altura, corDePele, corDosOlhos,
                 anoDeNascimento, genero, massa);
