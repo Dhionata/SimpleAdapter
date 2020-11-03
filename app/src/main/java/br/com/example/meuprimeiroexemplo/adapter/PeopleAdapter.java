@@ -1,6 +1,7 @@
 package br.com.example.meuprimeiroexemplo.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,16 +64,15 @@ public class PeopleAdapter extends BaseAdapter {
             txtItemGender = view.findViewById(R.id.textGender);
 
             txtItemName.setText(people.getName());
-            txtItemHeight.setText(String.valueOf(people.getHeight()));
-            txtItemMass.setText(String.valueOf(people.getMass()));
+            txtItemHeight.setText(people.getHeight());
+            txtItemMass.setText(people.getMass());
             txtItemHairColor.setText(people.getHair_color());
             txtItemSkinColor.setText(people.getSkin_color());
             txtItemEyeColor.setText(people.getEye_color());
-            txtItemBirthYear.setText(String.valueOf(people.getBirth_year()));
+            txtItemBirthYear.setText(people.getBirth_year());
             txtItemGender.setText(people.getGender());
         } catch (Exception e) {
-            System.out.println("-- Deu ruim --");
-            e.printStackTrace();
+            Log.e("Vixi...", "Deu ruim...." + e.getMessage());
         }
         return view;
     }

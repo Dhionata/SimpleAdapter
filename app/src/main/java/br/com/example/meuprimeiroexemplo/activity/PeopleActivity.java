@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.example.meuprimeiroexemplo.R;
@@ -24,7 +23,6 @@ import retrofit2.Retrofit;
 public class PeopleActivity extends DebugActivity {
 
     ListView listViewPeople;
-    List<People> pessoas = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,21 +55,15 @@ public class PeopleActivity extends DebugActivity {
                     // O método onResponse retorna os dados do recurso(resource) consumido.
                     try {
                         DefaultModel resposta = response.body();
-                        //new Gson().toJsonTree(resposta.getResults()).getAsJsonArray().get(0).getAsJsonObject().get("name")
-                        /*JsonArray jsonObject =
-                                new Gson().toJsonTree(resposta.getResults()).getAsJsonArray();*/
 
                         List<People> pessoas = resposta.getResults();
 
-                        for (int i = 0; i < pessoas.size(); i++) {
-                            Log.i("post", String.format("%d %s", i,
-                                    pessoas.get(i).toString()));
+                        PeopleAdapter p =
+                                new PeopleAdapter(getApplicationContext(), pessoas);
 
-                            baseAdapter(pessoas.get(i).getName(), pessoas.get(i).getHair_color(),
-                                    pessoas.get(i).getSkin_color(), pessoas.get(i).getEye_color(),
-                                    pessoas.get(i).getBirth_year(), pessoas.get(i).getGender(),
-                                    pessoas.get(i).getMass(), pessoas.get(i).getHeight());
-                        }
+                        listViewPeople = findViewById(R.id.peopleList);
+                        listViewPeople.setAdapter(p);
+
                     } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), "Ocorreu um erro " +
                                         "no processamento.\n\n" + e.getMessage(),
@@ -92,36 +84,5 @@ public class PeopleActivity extends DebugActivity {
         } catch (Exception e) {
             Log.i("-- Deu ruim... --\n", "-- Erro --\n\n" + e.getMessage());
         }
-    }
-
-    private void preencherObjetoLista(String nome, String corDoCabelo,
-                                      Integer altura,
-                                      String corDePele, String corDosOlhos,
-                                      Integer anoDeNascimento, String genero,
-                                      Integer massa) {
-        try {
-            People people =
-                    People.builder().name(nome).mass(massa).birth_year(anoDeNascimento).gender(genero).eye_color(corDosOlhos).
-                            hair_color(corDoCabelo).height(altura).skin_color(corDePele).build();
-
-            pessoas.add(people);
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "-- Erro --" + e.getMessage(), Toast.LENGTH_LONG).show();
-            Log.i("app-peole", e.getMessage());
-        }
-    }
-
-    private void baseAdapter(String nome, String corDoCabelo, String corDePele,
-                             String corDosOlhos, Integer anoDeNascimento,
-                             String genero, Integer massa, Integer altura) {
-
-        preencherObjetoLista(nome, corDoCabelo, altura, corDePele, corDosOlhos,
-                anoDeNascimento, genero, massa);
-
-        listViewPeople = findViewById(R.id.peopleList);
-
-        PeopleAdapter peopleAdapter = new PeopleAdapter(getApplicationContext(), pessoas);
-
-        listViewPeople.setAdapter(peopleAdapter);
     }
 }
