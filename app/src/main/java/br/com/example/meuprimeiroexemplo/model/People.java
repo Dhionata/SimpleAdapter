@@ -1,6 +1,6 @@
 package br.com.example.meuprimeiroexemplo.model;
 
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,9 +15,8 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class People {
+public class People implements Serializable {
     //Integer
-
     private Integer id;
     private String name;
     private String height;
@@ -28,13 +27,11 @@ public class People {
     private String birth_year;
     private String gender;
     //String
-
     private String homeworld;
     private List<String> films = new ArrayList<>();
     private List<String> species = new ArrayList<>();
     private List<String> vehicles = new ArrayList<>();
     private List<String> starships = new ArrayList<>();
-
     private String created;
     private String edited;
     private String url;
