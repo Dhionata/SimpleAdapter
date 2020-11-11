@@ -36,4 +36,12 @@
     <string name="body">Body</string>
     <string name="chuck_norris">Chuck Norris</string>
     <string name="usar_api">Usar API</string>
+    <string name="homeworld">HomeWorld</string>
+    <string name="films">Films</string>
+    <string name="species">Species</string>
+    <string name="vehicles">Vehicles</string>
+    <string name="starships">StarShips</string>
+    <string name="created">Created</string>
+    <string name="edited">Edited</string>
+    <string name="url">Url</string>
 </resources>

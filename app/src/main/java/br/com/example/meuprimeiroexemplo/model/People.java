@@ -1,6 +1,5 @@
 package br.com.example.meuprimeiroexemplo.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +14,7 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class People implements Serializable {
+public class People {
     //Integer
     private Integer id;
     private String name;

@@ -3,6 +3,7 @@ package br.com.example.meuprimeiroexemplo.activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -45,24 +46,24 @@ public class PeopleActivity extends DebugActivity {
         //Fazer o método/operação pretendido.
 
         Call<DefaultModel> lista = peopleResource.get();
-//psé... tentei.. kkk
-        // Utilizar a estrutura de dados FILA (FIFO) para trabalhar
-        //com chamadas assíncronas.
+
         try {
             lista.enqueue(new Callback<DefaultModel>() {
                 @Override
                 public void onResponse(Call<DefaultModel> call, Response<DefaultModel> response) {
                     // O método onResponse retorna os dados do recurso(resource) consumido.
                     try {
-                        DefaultModel resposta = response.body();
 
-                        List<People> pessoas = resposta.getResults();
+                        List<People> pessoas = response.body().getResults();
 
                         PeopleAdapter p =
                                 new PeopleAdapter(getApplicationContext(), pessoas);
 
                         listViewPeople = findViewById(R.id.peopleList);
                         listViewPeople.setAdapter(p);
+
+                        Button b = findViewById(R.id.usarAPI);
+                        b.setClickable(false);
 
                     } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), "Ocorreu um erro " +
@@ -82,7 +83,7 @@ public class PeopleActivity extends DebugActivity {
                 }
             });
         } catch (Exception e) {
-            Log.i("-- Deu ruim... --\n", "-- Erro --\n\n" + e.getMessage());
+            Log.e("-- Deu ruim... --\n", "-- Erro --\n\n" + e.getMessage());
         }
     }
 }

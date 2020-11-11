@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/people"
+            app:srcCompat="@drawable/chuck_norris" />
+
+        <TextView
+            android:id="@+id/textNameStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textHeightStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/height"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textMassStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mass"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textMass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textHairColorStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hair_color"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textHairColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textSkinColorStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/skin_color"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textSkinColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textEyeColorStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/eye_color"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textEyeColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textBirthYearStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/birth_year"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textBirthYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textGenderStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/gender"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textHomeWorldStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/homeworld"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textHomeWorld"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textFilmsStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/films"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textFilms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textSpeciesStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/species"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textSpecies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textVehiclesStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vehicles"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textVehicles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textStarShipsStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/starships"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textStarShips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textCreatedStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/created"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textCreated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textEditedStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/edited"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textEdited"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textUrlStatic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/url"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
