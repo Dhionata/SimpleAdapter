@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
@@ -21,10 +22,10 @@ import br.com.example.meuprimeiroexemplo.model.Post;
 
 public class PostActivity extends DebugActivity {
 
-    EditText txtUserId, txtTitle, txtBody;
-    ListView listViewPost;
-    final List<HashMap<String, String>> lista = new ArrayList<>(); //2 - Melancia - Melancia faz bem pro estomago.
-    final List<Post> postagens = new ArrayList<>();
+    private final List<HashMap<String, String>> lista = new ArrayList<>(); //2 - Melancia - Melancia faz bem pro
+    // estomago.
+    private final List<Post> postagens = new ArrayList<>();
+    private ListView listViewPost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +35,9 @@ public class PostActivity extends DebugActivity {
 
     public void adicionarPost(View view) {
         //Entrada
-        txtUserId = findViewById(R.id.txtUserId);
-        txtTitle = findViewById(R.id.txtTitle);
-        txtBody = findViewById(R.id.txtBody);
+        EditText txtUserId = findViewById(R.id.txtUserId);
+        EditText txtTitle = findViewById(R.id.txtTitle);
+        EditText txtBody = findViewById(R.id.txtBody);
 
         //Processamento
         String title, body;
@@ -65,7 +66,7 @@ public class PostActivity extends DebugActivity {
 
         listViewPost = findViewById(R.id.listViewPost);
 
-        PostAdapter postAdapter = new PostAdapter(getApplicationContext(), postagens);
+        ListAdapter postAdapter = new PostAdapter(getApplicationContext(), postagens);
 
         listViewPost.setAdapter(postAdapter);
     }
@@ -76,7 +77,7 @@ public class PostActivity extends DebugActivity {
                     Post.builder().userId(userId).title(title).body(body).build();
 
             postagens.add(post);
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             Toast.makeText(getApplicationContext(),
                     "-- Erro --\n\n" + e.getMessage(), Toast.LENGTH_LONG).show();
         }
@@ -108,7 +109,7 @@ public class PostActivity extends DebugActivity {
 
             listViewPost = findViewById(R.id.listViewPost);
             listViewPost.setAdapter(simpleAdapter);
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             Log.i("Falha SimpleAdapter", "\n\n" + e.getMessage());
             Toast.makeText(getApplicationContext(),
                     "Falha SimpleAdapter\n\n" + e.getMessage(),

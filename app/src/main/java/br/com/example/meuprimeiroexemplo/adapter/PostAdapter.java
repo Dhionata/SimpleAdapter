@@ -24,29 +24,30 @@ public class PostAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return this.postagens != null ? this.postagens.size() : 0;
+        return null != postagens ? postagens.size() : 0;
     }
 
     @Override
-    public Post getItem(int i) {
-        return this.postagens.get(i);
+    public Post getItem(int position) {
+        return postagens.get(position);
     }
 
     @Override
-    public long getItemId(int i) {
-        return i;
+    public long getItemId(int position) {
+        return position;
     }
 
     @Override
-    public View getView(int posicao, View view, ViewGroup viewGroup) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         //Primeira coisa que precisamos verificar é se o layout está instanciado
         //senão, leio a referência do xml para objeto java.
-        if (view == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.item_post, viewGroup, false);
+        View view = convertView;
+        if (null == view) {
+            view = LayoutInflater.from(context).inflate(R.layout.item_post, parent, false);
         }
 
         //Procura o item dentro da lista para ser 'exibido' na listView
-        Post post = getItem(posicao);
+        Post post = getItem(position);
 
         //Criar a referência de atributos/objeto java para ser customizar uma listView
         TextView txtItemUserId, txtItemTitle, txtItemBody;

@@ -9,7 +9,6 @@ import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface PostResource<T, E> {
@@ -23,8 +22,9 @@ public interface PostResource<T, E> {
     @GET("posts")
     Call<List<Post>> get();
 
-    @PUT("posts/{id}")
-    Call<Void> put(@Path("id") Integer id, @Body Post post);
+    //noUsed
+    /*@PUT("posts/{id}")
+    Call<Void> put(@Path("id") Integer id, @Body Post post);*/
 
     @PATCH("posts/{id}")
     Call<Void> patc(@Path("id") Integer id, @Body Post post);

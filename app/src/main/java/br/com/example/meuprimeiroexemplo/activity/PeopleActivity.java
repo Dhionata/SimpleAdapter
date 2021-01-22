@@ -23,7 +23,7 @@ import retrofit2.Retrofit;
 
 public class PeopleActivity extends DebugActivity {
 
-    ListView listViewPeople;
+    private ListView listViewPeople;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

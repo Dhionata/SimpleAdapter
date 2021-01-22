@@ -24,12 +24,12 @@ public class CommentsAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return this.comments.size();
+        return comments.size();
     }
 
     @Override
     public Comments getItem(int i) {
-        return this.comments.get(i);
+        return comments.get(i);
     }
 
     @Override
@@ -38,25 +38,25 @@ public class CommentsAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int posicao, View view, ViewGroup viewGroup) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         //Primeira coisa que precisamos verificar é se o layout está instanciado
         //senão, leio a referência do xml para objeto java.
-        if (view == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.comments_item_post, viewGroup, false);
+        if (null == convertView) {
+            convertView = LayoutInflater.from(context).inflate(R.layout.comments_item_post, parent, false);
         }
 
         //Procura o item dentro da lista para ser 'exibido' na listView
-        Comments comments = getItem(posicao);
+        Comments comments = getItem(position);
 
         //Criar a referência de atributos/objeto java para ser customizar uma listView
         TextView txtItemPostId, txtItemId, txtItemNome, txtItemEmail,
                 txtItemBody;
 
-        txtItemPostId = view.findViewById(R.id.txtItemPostId);
-        txtItemId = view.findViewById(R.id.txtItemId);
-        txtItemNome = view.findViewById(R.id.txtItemNome);
-        txtItemEmail = view.findViewById(R.id.txtItemEmail);
-        txtItemBody = view.findViewById(R.id.txtItemBody);
+        txtItemPostId = convertView.findViewById(R.id.txtItemPostId);
+        txtItemId = convertView.findViewById(R.id.txtItemId);
+        txtItemNome = convertView.findViewById(R.id.txtItemNome);
+        txtItemEmail = convertView.findViewById(R.id.txtItemEmail);
+        txtItemBody = convertView.findViewById(R.id.txtItemBody);
 
         txtItemPostId.setText(String.valueOf(comments.getPostId()));
         txtItemId.setText(String.valueOf(comments.getId()));
@@ -64,6 +64,6 @@ public class CommentsAdapter extends BaseAdapter {
         txtItemEmail.setText(comments.getEmail());
         txtItemBody.setText(comments.getBody());
 
-        return view;
+        return convertView;
     }
 }

@@ -10,8 +10,6 @@ import br.com.example.meuprimeiroexemplo.debug.DebugActivity;
 
 public class PessoaActivity extends DebugActivity {
 
-    EditText textNome, textSobreNome, textEmail, textPhone;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,10 +18,10 @@ public class PessoaActivity extends DebugActivity {
 
     public void exibir(View view) {
         // Entrada
-        textNome = findViewById(R.id.textNome);
-        textSobreNome = findViewById(R.id.textSobreNome);
-        textEmail = findViewById(R.id.textEmail);
-        textPhone = findViewById(R.id.textPhone);
+        EditText textNome = findViewById(R.id.textNome);
+        EditText textSobreNome = findViewById(R.id.textSobreNome);
+        EditText textEmail = findViewById(R.id.textEmail);
+        EditText textPhone = findViewById(R.id.textPhone);
         // Processamento
         String nome, sobrenome, email, telefone;
         nome = textNome.getText().toString();
