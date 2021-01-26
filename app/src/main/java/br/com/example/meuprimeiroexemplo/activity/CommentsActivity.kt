@@ -3,7 +3,6 @@ package br.com.example.meuprimeiroexemplo.activity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.ListView
 import android.widget.Toast
 import br.com.example.meuprimeiroexemplo.R
@@ -55,10 +54,12 @@ open class CommentsActivity : DebugActivity() {
                 }
 
             })
-            val b = findViewById<Button>(R.id.btnAddPost)
+            /*val b = findViewById<Button>(R.id.btnAddPost)
             b.isClickable = false
-            Toast.makeText(applicationContext, "Você não pode mais clicar!",
-                    Toast.LENGTH_LONG).show()
+            if (!b.isClickable) {
+                Toast.makeText(applicationContext, "Você não pode mais clicar!",
+                        Toast.LENGTH_LONG).show()
+            }*/
         } catch (e: RuntimeException) {
             Toast.makeText(applicationContext, "Deu ruim meu amigo...Erro-- ${e.message}", Toast.LENGTH_LONG).show()
             println("\n\n\nLinha abaixo é de erro!!\n\n\n")

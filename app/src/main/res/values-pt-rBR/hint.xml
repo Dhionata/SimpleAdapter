@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hint_nome">informe seu nome:</string>
-    <string name="id">id</string>
 </resources>

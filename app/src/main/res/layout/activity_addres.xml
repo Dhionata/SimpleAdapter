@@ -7,7 +7,6 @@
     tools:context=".activity.AddresActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
@@ -17,7 +16,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/estou_na_tela_de_addres" />

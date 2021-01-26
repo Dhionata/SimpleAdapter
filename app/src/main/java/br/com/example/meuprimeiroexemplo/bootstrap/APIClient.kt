@@ -1,3 +1,5 @@
+@file:Suppress("KDocMissingDocumentation")
+
 package br.com.example.meuprimeiroexemplo.bootstrap
 
 import android.widget.Toast

@@ -4,7 +4,7 @@ import br.com.example.meuprimeiroexemplo.model.Comments
 import retrofit2.Call
 import retrofit2.http.*
 
-interface CommentsResource<T, E> {
+interface CommentsResource {
     @POST("comments")
     fun post(@Body comment: Comments): Call<Comments>
 

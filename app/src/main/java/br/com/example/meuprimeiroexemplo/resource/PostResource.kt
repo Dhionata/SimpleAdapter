@@ -4,7 +4,7 @@ import br.com.example.meuprimeiroexemplo.model.Post
 import retrofit2.Call
 import retrofit2.http.*
 
-interface PostResource<T, E> {
+interface PostResource {
     @POST("posts")
     fun post(@Body post: Post?): Call<Post?>?
 
