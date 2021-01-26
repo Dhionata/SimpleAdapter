@@ -1,55 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".activity.HomeActivity">
 
-    <LinearLayout
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        ads:adSize="FULL_BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintTop_toTopOf="@+id/btnAddres"
+        ads:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp" />
 
-        <Button
-            android:id="@+id/btnAddres"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="exibir"
-            android:text="@string/addres" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAddres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="exibir"
+        android:text="@string/addres"
+        ads:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btnPessoa"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="exibir"
-            android:text="@string/pessoa" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPessoa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="exibir"
+        android:text="@string/pessoa"
+        ads:layout_constraintTop_toBottomOf="@+id/btnAddres" />
 
-        <Button
-            android:id="@+id/btnUse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="exibir"
-            android:text="@string/user" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnUse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="exibir"
+        android:text="@string/user"
+        ads:layout_constraintTop_toBottomOf="@+id/btnPessoa" />
 
-        <Button
-            android:id="@+id/btnPost"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="exibir"
-            android:text="@string/post" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="exibir"
+        android:text="@string/post"
+        ads:layout_constraintTop_toBottomOf="@+id/btnUse" />
 
-        <Button
-            android:id="@+id/btnComments"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="exibir"
-            android:text="@string/comments" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnComments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="exibir"
+        android:text="@string/comments"
+        ads:layout_constraintTop_toBottomOf="@+id/btnPost" />
 
-        <Button
-            android:id="@+id/btnPeople"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="exibir"
-            android:text="@string/people" />
-    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPeople"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="exibir"
+        android:text="@string/people"
+        ads:layout_constraintTop_toBottomOf="@+id/btnComments" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

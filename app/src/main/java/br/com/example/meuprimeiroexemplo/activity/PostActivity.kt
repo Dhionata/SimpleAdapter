@@ -1,124 +1,86 @@
-package br.com.example.meuprimeiroexemplo.activity;
+package br.com.example.meuprimeiroexemplo.activity
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.Toast;
+import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.*
+import androidx.appcompat.widget.SwitchCompat
+import br.com.example.meuprimeiroexemplo.R
+import br.com.example.meuprimeiroexemplo.adapter.PostAdapter
+import br.com.example.meuprimeiroexemplo.debug.DebugActivity
+import br.com.example.meuprimeiroexemplo.model.Post
+import java.util.*
 
-import androidx.appcompat.widget.SwitchCompat;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import br.com.example.meuprimeiroexemplo.R;
-import br.com.example.meuprimeiroexemplo.adapter.PostAdapter;
-import br.com.example.meuprimeiroexemplo.debug.DebugActivity;
-import br.com.example.meuprimeiroexemplo.model.Post;
-
-public class PostActivity extends DebugActivity {
-
-    private final List<HashMap<String, String>> lista = new ArrayList<>(); //2 - Melancia - Melancia faz bem pro
-    // estomago.
-    private final List<Post> postagens = new ArrayList<>();
-    private ListView listViewPost;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post);
+class PostActivity : DebugActivity() {
+    private val lista: MutableList<HashMap<String, String?>> = ArrayList()
+    private val postagens: MutableList<Post> = ArrayList()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_post)
     }
 
-    public void adicionarPost(View view) {
+    fun adicionarPost(view: View?) {
         //Entrada
-        EditText txtUserId = findViewById(R.id.txtUserId);
-        EditText txtTitle = findViewById(R.id.txtTitle);
-        EditText txtBody = findViewById(R.id.txtBody);
+        val txtUserId = findViewById<TextView>(R.id.txtUserId)
+        val txtTitle = findViewById<TextView>(R.id.txtTitle)
+        val txtBody = findViewById<TextView>(R.id.txtBody)
 
         //Processamento
-        String title, body;
-        Integer userId;
+        val title: String
+        val body: String
+        val userId: Int
         try {
-            userId = Integer.parseInt(txtUserId.getText().toString());
-            title = txtTitle.getText().toString();
-            body = txtBody.getText().toString();
-
-            SwitchCompat swithc = findViewById(R.id.switch1);
-            if (swithc.isChecked()) {
-                baseAdapter(userId, title, body);
+            userId = txtUserId.text.toString().toInt()
+            title = txtTitle.text.toString()
+            body = txtBody.text.toString()
+            val swithc = findViewById<SwitchCompat>(R.id.switch1)
+            if (swithc.isChecked) {
+                baseAdapter(userId, title, body)
             } else {
-                simpleAdapter(userId, title, body);
+                simpleAdapter(userId, title, body)
             }
-        } catch (NumberFormatException e) {
-            Log.i("formatação", "deu ruim..." + e.getMessage());
-            Toast.makeText(getApplicationContext(), "formatação" + e.getMessage(),
-                    Toast.LENGTH_LONG).show();
+        } catch (e: NumberFormatException) {
+            Log.i("formatação", "deu ruim..." + e.message)
+            Toast.makeText(applicationContext, "formatação" + e.message,
+                    Toast.LENGTH_LONG).show()
         }
     }
 
-    private void baseAdapter(Integer userId, String title, String body) {
-
-        preencherObjetoLista(userId, title, body);
-
-        listViewPost = findViewById(R.id.listViewPost);
-
-        ListAdapter postAdapter = new PostAdapter(getApplicationContext(), postagens);
-
-        listViewPost.setAdapter(postAdapter);
+    private fun baseAdapter(userId: Int, title: String, body: String) {
+        preencherObjetoLista(userId, title, body)
+        val listViewPost = findViewById<ListView>(R.id.listViewPost)
+        val postAdapter: ListAdapter = PostAdapter(applicationContext, postagens)
+        listViewPost.adapter = postAdapter
     }
 
-    private void preencherObjetoLista(Integer userId, String title, String body) {
+    private fun preencherObjetoLista(userId: Int, title: String, body: String) {
         try {
-            Post post =
-                    Post.builder().userId(userId).title(title).body(body).build();
-
-            postagens.add(post);
-        } catch (RuntimeException e) {
-            Toast.makeText(getApplicationContext(),
-                    "-- Erro --\n\n" + e.getMessage(), Toast.LENGTH_LONG).show();
+            val post = Post(userId, title, body)
+            postagens.add(post)
+        } catch (e: RuntimeException) {
+            Toast.makeText(applicationContext, "-- Erro --${e.message}", Toast.LENGTH_LONG).show()
         }
     }
 
-    private void simpleAdapter(Integer userId, String title, String body) {
+    private fun simpleAdapter(userId: Int, title: String, body: String) {
         try {
-            String x = String.valueOf(userId);
+            val x = userId.toString()
+            val map = HashMap<String, String?>()
+            map["userId"] = x
+            map["title"] = title
+            map["body"] = body
+            lista.add(map)
 
-            HashMap<String, String> map = new HashMap<>();
-            map.put("userId", x);
-            map.put("title", title);
-            map.put("body", body);
-
-            lista.add(map);
-
-            //chave : valor
-            //nome: Dhionatã
-            //endereço: trindade
-
-            //chave == identificar nome: endereço: pais:
-            //valor == dhionatã: trindade: Brasil
-            //Saída
-
-            String[] chaves = {"userId", "title", "body"}; //chaves do map
-            int[] vaiPara = {R.id.txtItemUserId, R.id.txtItemTitle, R.id.txtItemBody};//ids do layout do tipo "Item
-
-            SimpleAdapter simpleAdapter = new SimpleAdapter(getApplicationContext(), lista, R.layout.item_post, chaves, vaiPara);
-
-            listViewPost = findViewById(R.id.listViewPost);
-            listViewPost.setAdapter(simpleAdapter);
-        } catch (RuntimeException e) {
-            Log.i("Falha SimpleAdapter", "\n\n" + e.getMessage());
-            Toast.makeText(getApplicationContext(),
-                    "Falha SimpleAdapter\n\n" + e.getMessage(),
-                    Toast.LENGTH_LONG).show();
+            val chaves = arrayOf("userId", "title", "body") //chaves do map
+            val vaiPara = intArrayOf(R.id.txtItemUserId, R.id.txtItemTitle, R.id.txtItemBody) //ids do layout do tipo "Item
+            val simpleAdapter = SimpleAdapter(applicationContext, lista, R.layout.item_post, chaves, vaiPara)
+            val listViewPost: ListView = findViewById(R.id.listViewPost)
+            listViewPost.adapter = simpleAdapter
+        } catch (e: RuntimeException) {
+            Log.i("Falha SimpleAdapter", "Deu ruim...\n${e.message}", e)
+            Toast.makeText(applicationContext, "Falha SimpleAdapter ${e.message}", Toast.LENGTH_LONG).show()
         }
-
-    }
-
-    /*private void arrayAdapter(String userId, String title, String body) {
+    } /*private void arrayAdapter(String userId, String title, String body) {
 
         preencherObjetoLista(userId, title, body);
 

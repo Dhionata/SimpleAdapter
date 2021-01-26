@@ -1,34 +1,26 @@
-package br.com.example.meuprimeiroexemplo.resource;
+package br.com.example.meuprimeiroexemplo.resource
 
-import br.com.example.meuprimeiroexemplo.model.DefaultModel;
-import br.com.example.meuprimeiroexemplo.model.People;
-import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.DELETE;
-import retrofit2.http.GET;
-import retrofit2.http.PATCH;
-import retrofit2.http.POST;
-import retrofit2.http.Path;
+import br.com.example.meuprimeiroexemplo.model.DefaultModel
+import br.com.example.meuprimeiroexemplo.model.People
+import retrofit2.Call
+import retrofit2.http.*
 
-public interface PeopleResource<T, E> {
-
+interface PeopleResource<T, E> {
     @POST("people")
-    Call<People> post(@Body People people);
+    fun post(@Body people: People): Call<People>
 
     @GET("people/{id}")
-    Call<People> get(@Path("id") Integer id);
+    operator fun get(@Path("id") id: Int): Call<People>
 
     @GET("people")
-    Call<DefaultModel> get();
+    fun get(): Call<DefaultModel>
 
-    //noUsed
-    /*@PUT("people/{id}")
-    Call<Void> put(@Path("id") Integer id, @Body People people);*/
+    @PUT("people/{id}")
+    fun put(@Path("id") id: Int, @Body people: People)
 
     @PATCH("people/{id}")
-    Call<Void> patch(@Path("id") Integer id, @Body People people);
+    fun patch(@Path("id") id: Int, @Body people: People): Call<Void>
 
     @DELETE("people/{id}")
-    Call<Void> delete(@Path("id") Integer id);
-
+    fun delete(@Path("id") id: Int?): Call<Void>
 }

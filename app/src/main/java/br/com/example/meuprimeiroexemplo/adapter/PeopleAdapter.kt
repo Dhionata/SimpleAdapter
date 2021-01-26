@@ -1,101 +1,80 @@
-package br.com.example.meuprimeiroexemplo.adapter;
+package br.com.example.meuprimeiroexemplo.adapter
 
-import android.content.Context;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.content.Context
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.BaseAdapter
+import android.widget.TextView
+import android.widget.Toast
+import br.com.example.meuprimeiroexemplo.R
+import br.com.example.meuprimeiroexemplo.model.People
 
-import java.util.List;
-
-import br.com.example.meuprimeiroexemplo.R;
-import br.com.example.meuprimeiroexemplo.model.People;
-
-public class PeopleAdapter extends BaseAdapter {
-
-    private final Context context;
-    private final List<People> people;
-
-    public PeopleAdapter(Context context, List<People> people) {
-        this.context = context;
-        this.people = people;
+class PeopleAdapter(private val context: Context, private val people: List<People>?) : BaseAdapter() {
+    override fun getCount(): Int {
+        return people?.size ?: 0
     }
 
-    @Override
-    public int getCount() {
-        return this.people != null ? this.people.size() : 0;
+    override fun getItem(i: Int): People {
+        return people!![i]
     }
 
-    @Override
-    public People getItem(int i) {
-        return this.people.get(i);
+    override fun getItemId(i: Int): Long {
+        return i.toLong()
     }
 
-    @Override
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override
-    public View getView(int posicao, View view, ViewGroup viewGroup) {
-        //Primeira coisa que precisamos verificar é se o layout está instanciado
-        //senão, leio a referência do xml para objeto java.
-        if (view == null) {
-            view = LayoutInflater.from(context).inflate(R.layout.people_item_post,
-                    viewGroup, false);
-        }
+    override fun getView(posicao: Int, view: View?, viewGroup: ViewGroup): View {
 
         //Procura o item dentro da lista para ser 'exibido' na listView
-        People people = getItem(posicao);
+        val people = getItem(posicao)
+
+        var converterVisualizacao = view
+        if (null == converterVisualizacao) {
+            converterVisualizacao = LayoutInflater.from(context).inflate(R.layout.comments_item_post, viewGroup, false)
+        }
 
         //Criar a referência de atributos/objeto java para ser customizar uma listView
-        TextView txtItemName, txtItemHeight, txtItemMass, txtItemHairColor,
-                txtItemSkinColor, txtItemEyeColor, txtItemBirthYear,
-                txtItemGender, txtItemHomeWorld, txtItemFilms, txtItemSpecies,
-                txtItemVehicles, txtItemStarShips, txtItemCreated, txtItemEdited, txtItemUrl;
-        try {
-            txtItemName = view.findViewById(R.id.textName);
-            txtItemHeight = view.findViewById(R.id.textHeight);
-            txtItemMass = view.findViewById(R.id.textMass);
-            txtItemHairColor = view.findViewById(R.id.textHairColor);
-            txtItemSkinColor = view.findViewById(R.id.textSkinColor);
-            txtItemEyeColor = view.findViewById(R.id.textEyeColor);
-            txtItemBirthYear = view.findViewById(R.id.textBirthYear);
-            txtItemGender = view.findViewById(R.id.textGender);
-            txtItemHomeWorld = view.findViewById(R.id.textHomeWorld);
-            txtItemFilms = view.findViewById(R.id.textFilms);
-            txtItemSpecies = view.findViewById(R.id.textSpecies);
-            txtItemVehicles = view.findViewById(R.id.textVehicles);
-            txtItemStarShips = view.findViewById(R.id.textStarShips);
-            txtItemCreated = view.findViewById(R.id.textCreated);
-            txtItemEdited = view.findViewById(R.id.textEdited);
-            txtItemUrl = view.findViewById(R.id.textUrl);
+        if (converterVisualizacao != null) {
+            try {
+                val txtItemName: TextView = converterVisualizacao.findViewById(R.id.textName)
+                val txtItemHeight: TextView = converterVisualizacao.findViewById(R.id.textHeight)
+                val txtItemMass: TextView = converterVisualizacao.findViewById(R.id.textMass)
+                val txtItemHairColor: TextView = converterVisualizacao.findViewById(R.id.textHairColor)
+                val txtItemSkinColor: TextView = converterVisualizacao.findViewById(R.id.textSkinColor)
+                val txtItemEyeColor: TextView = converterVisualizacao.findViewById(R.id.textEyeColor)
+                val txtItemBirthYear: TextView = converterVisualizacao.findViewById(R.id.textBirthYear)
+                val txtItemGender: TextView = converterVisualizacao.findViewById(R.id.textGender)
+                val txtItemHomeWorld: TextView = converterVisualizacao.findViewById(R.id.textHomeWorld)
+                val txtItemFilms: TextView = converterVisualizacao.findViewById(R.id.textFilms)
+                val txtItemSpecies: TextView = converterVisualizacao.findViewById(R.id.textSpecies)
+                val txtItemVehicles: TextView = converterVisualizacao.findViewById(R.id.textVehicles)
+                val txtItemStarShips: TextView = converterVisualizacao.findViewById(R.id.textStarShips)
+                val txtItemCreated: TextView = converterVisualizacao.findViewById(R.id.textCreated)
+                val txtItemEdited: TextView = converterVisualizacao.findViewById(R.id.textEdited)
+                val txtItemUrl: TextView = converterVisualizacao.findViewById(R.id.textUrl)
+                txtItemName.text = people.name
+                txtItemHeight.text = people.height
+                txtItemMass.text = people.mass
+                txtItemHairColor.text = people.hair_color
+                txtItemSkinColor.text = people.skin_color
+                txtItemEyeColor.text = people.eye_color
+                txtItemBirthYear.text = people.birth_year
+                txtItemGender.text = people.gender
+                txtItemHomeWorld.text = people.homeworld
+                txtItemFilms.text = people.films.size.toString()
+                txtItemSpecies.text = people.species.size.toString()
+                txtItemVehicles.text = people.vehicles.size.toString()
+                txtItemStarShips.text = people.starships.size.toString()
+                txtItemCreated.text = people.created
+                txtItemEdited.text = people.edited
+                txtItemUrl.text = people.url
 
-            txtItemName.setText(people.getName());
-            txtItemHeight.setText(people.getHeight());
-            txtItemMass.setText(people.getMass());
-            txtItemHairColor.setText(people.getHair_color());
-            txtItemSkinColor.setText(people.getSkin_color());
-            txtItemEyeColor.setText(people.getEye_color());
-            txtItemBirthYear.setText(people.getBirth_year());
-            txtItemGender.setText(people.getGender());
-            txtItemHomeWorld.setText(people.getHomeworld());
-            txtItemFilms.setText(String.valueOf(people.getFilms().size()));
-            txtItemSpecies.setText(String.valueOf(people.getSpecies().size()));
-            txtItemVehicles.setText(String.valueOf(people.getVehicles().size()));
-            txtItemStarShips.setText(String.valueOf(people.getStarships().size()));
-            txtItemCreated.setText(people.getCreated());
-            txtItemEdited.setText(people.getEdited());
-            txtItemUrl.setText(people.getUrl());
-
-        } catch (Exception e) {
-            Log.e("Vixi...", "Deu ruim...." + e.getMessage());
-            Toast.makeText(context, "--Erro--\n" + e.getMessage(),
-                    Toast.LENGTH_LONG).show();
+            } catch (e: Exception) {
+                Log.e("Vixi...", "Deu ruim...." + e.message)
+                Toast.makeText(context, "--Erro--${e.message}", Toast.LENGTH_LONG).show()
+            }
         }
-        return view;
+        return converterVisualizacao!!
     }
 }

@@ -1,59 +1,59 @@
-package br.com.example.meuprimeiroexemplo.debug;
+package br.com.example.meuprimeiroexemplo.debug
 
-import android.os.Bundle;
-import android.util.Log;
+import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-public class DebugActivity extends AppCompatActivity {
-    protected static final String TAG = "fasam-dhionata";
-
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        Log.i(TAG, getClassName() + ".onCreate() chamado: " + savedInstanceState);
+open class DebugActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.i(TAG, "$className.onCreate() chamado: $savedInstanceState")
     }
 
-    protected void onStart() {
-        super.onStart();
-        Log.i(TAG, getClassName() + ".onStart() chamado.");
+    override fun onStart() {
+        super.onStart()
+        Log.i(TAG, "$className.onStart() chamado.")
     }
 
-    protected void onRestart() {
-        super.onRestart();
-        Log.i(TAG, getClassName() + ".onRestart() chamado.");
+    override fun onRestart() {
+        super.onRestart()
+        Log.i(TAG, "$className.onRestart() chamado.")
     }
 
-    protected void onResume() {
-        super.onResume();
-        Log.i(TAG, getClassName() + ".onResume() chamado.");
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG, "$className.onResume() chamado.")
     }
 
-    protected void onPause() {
-        super.onPause();
-        Log.i(TAG, getClassName() + ".onPause() chamado.");
+    override fun onPause() {
+        super.onPause()
+        Log.i(TAG, "$className.onPause() chamado.")
     }
 
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        Log.i(TAG, getClassName() + ".onSaveInstanceState() chamado.");
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Log.i(TAG, "$className.onSaveInstanceState() chamado.")
     }
 
-    protected void onStop() {
-        super.onStop();
-        Log.i(TAG, getClassName() + ".onStop() chamado.");
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG, "$className.onStop() chamado.")
     }
 
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.i(TAG, getClassName() + ".onDestroy() chamado.");
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG, "$className.onDestroy() chamado.")
     }
 
-    private String getClassName() {
-        // Retorna o nome da classe sem o pacote
-        String s = getClass().getName();
-        return s.substring(s.lastIndexOf("."));
+    // Retorna o nome da classe sem o pacote
+    private val className: String
+        get() {
+            // Retorna o nome da classe sem o pacote
+            val s = javaClass.name
+            return s.substring(s.lastIndexOf("."))
+        }
+
+    companion object {
+        protected const val TAG: String = "fasam-dhionata"
     }
 }

@@ -1,38 +1,27 @@
-package br.com.example.meuprimeiroexemplo.resource;
+package br.com.example.meuprimeiroexemplo.resource
 
-import java.util.List;
+import br.com.example.meuprimeiroexemplo.model.Post
+import retrofit2.Call
+import retrofit2.http.*
 
-import br.com.example.meuprimeiroexemplo.model.Post;
-import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.DELETE;
-import retrofit2.http.GET;
-import retrofit2.http.PATCH;
-import retrofit2.http.POST;
-import retrofit2.http.Path;
-
-public interface PostResource<T, E> {
-
+interface PostResource<T, E> {
     @POST("posts")
-    Call<Post> post(@Body Post post);
+    fun post(@Body post: Post?): Call<Post?>?
 
     @GET("posts/{id}")
-    Call<Post> get(@Path("id") Integer id);
+    operator fun get(@Path("id") id: Int?): Call<Post?>?
 
     @GET("posts")
-    Call<List<Post>> get();
+    fun get(): Call<List<Post?>?>?
 
-    //noUsed
-    /*@PUT("posts/{id}")
-    Call<Void> put(@Path("id") Integer id, @Body Post post);*/
+    @PUT("posts/{id}")
+    fun put(@Path("id") id: Int, @Body post: Post)
 
     @PATCH("posts/{id}")
-    Call<Void> patc(@Path("id") Integer id, @Body Post post);
+    fun patc(@Path("id") id: Int?, @Body post: Post?): Call<Void?>?
 
     @DELETE("posts/{id}")
-    Call<Void> delete(@Path("id") Integer id);
-
-   /* @OPTIONS
+    fun delete(@Path("id") id: Int?): Call<Void?>? /* @OPTIONS
     Call<Void> options();
 
     @HEAD

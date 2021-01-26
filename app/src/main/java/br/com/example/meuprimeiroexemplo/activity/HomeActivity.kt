@@ -6,11 +6,23 @@ import android.view.View
 import android.widget.Toast
 import br.com.example.meuprimeiroexemplo.R
 import br.com.example.meuprimeiroexemplo.debug.DebugActivity
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
+
 
 class HomeActivity : DebugActivity() {
-    override fun onCreate(icicle: Bundle?) {
-        super.onCreate(icicle)
+    private lateinit var mAdView: AdView
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        MobileAds.initialize(this@HomeActivity) {}
+
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
     }
 
     fun exibir(view: View) {

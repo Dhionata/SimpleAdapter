@@ -1,89 +1,71 @@
-package br.com.example.meuprimeiroexemplo.activity;
+package br.com.example.meuprimeiroexemplo.activity
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.Button
+import android.widget.ListView
+import android.widget.Toast
+import br.com.example.meuprimeiroexemplo.R
+import br.com.example.meuprimeiroexemplo.adapter.PeopleAdapter
+import br.com.example.meuprimeiroexemplo.bootstrap.PeopleAPI
+import br.com.example.meuprimeiroexemplo.debug.DebugActivity
+import br.com.example.meuprimeiroexemplo.model.DefaultModel
+import br.com.example.meuprimeiroexemplo.resource.PeopleResource
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-import java.util.List;
 
-import br.com.example.meuprimeiroexemplo.R;
-import br.com.example.meuprimeiroexemplo.adapter.PeopleAdapter;
-import br.com.example.meuprimeiroexemplo.bootstrap.PeopleAPI;
-import br.com.example.meuprimeiroexemplo.debug.DebugActivity;
-import br.com.example.meuprimeiroexemplo.model.DefaultModel;
-import br.com.example.meuprimeiroexemplo.model.People;
-import br.com.example.meuprimeiroexemplo.resource.PeopleResource;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
+class PeopleActivity : DebugActivity() {
 
-public class PeopleActivity extends DebugActivity {
-
-    private ListView listViewPeople;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_people);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_people)
     }
 
     //Métod de exemplo para listar os dados de um serviço na internet
     //Utilizando o retrofit
-    public void listarPosts(View view) {
+    fun listarPosts(view: View?) {
         //Passo 6 - Criar função para trabalhar com o retrofit
-
-        Retrofit retrofit = PeopleAPI.getClient();
-
-        //Fazer a Inverção de Controle e injeção de dependência da interface
-        //(contrato) PostResource
-
-        PeopleResource peopleResource = retrofit.create(PeopleResource.class);
-
-        //Fazer o método/operação pretendido.
-
-        Call<DefaultModel> lista = peopleResource.get();
-
+        var lista: Call<DefaultModel>? = null
         try {
-            lista.enqueue(new Callback<DefaultModel>() {
-                @Override
-                public void onResponse(Call<DefaultModel> call, Response<DefaultModel> response) {
+            val retrofit = PeopleAPI.client
+
+            //Fazer a Inverção de Controle e injeção de dependência da interface
+            //(contrato) PostResource
+            val peopleResource = retrofit.create(PeopleResource::class.java)
+
+            //Fazer o método/operação pretendido.
+            lista = peopleResource.get()
+        } catch (e: Throwable) {
+            Toast.makeText(applicationContext, "Cara, o retrofit não tá pegando não kk${e.message}", Toast.LENGTH_LONG).show()
+        }
+        try {
+            lista!!.enqueue(object : Callback<DefaultModel?> {
+                override fun onResponse(call: Call<DefaultModel?>, response: Response<DefaultModel?>) {
                     // O método onResponse retorna os dados do recurso(resource) consumido.
                     try {
-
-                        List<People> pessoas = response.body().getResults();
-
-                        PeopleAdapter p =
-                                new PeopleAdapter(getApplicationContext(), pessoas);
-
-                        listViewPeople = findViewById(R.id.peopleList);
-                        listViewPeople.setAdapter(p);
-
-                        Button b = findViewById(R.id.usarAPI);
-                        b.setClickable(false);
-
-                    } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), "Ocorreu um erro " +
-                                        "no processamento.\n\n" + e.getMessage(),
-                                Toast.LENGTH_LONG).show();
-                        Log.e("lista -- Erro", "\n\n" + e.getMessage() + "\n" +
-                                "\n");
+                        val pessoas = response.body()?.results
+                        val p = PeopleAdapter(applicationContext, pessoas)
+                        val listViewPeople: ListView = findViewById(R.id.peopleList)
+                        listViewPeople.adapter = p
+                        val b = findViewById<Button>(R.id.usarAPI)
+                        b.isClickable = false
+                    } catch (e: Throwable) {
+                        Toast.makeText(applicationContext, "Ocorreu um erro no processamento.${e.message}", Toast.LENGTH_LONG).show()
+                        Log.e("lista -- Erro $", "Deu ruim...\n\n" + e.message, e)
                     }
                 }
 
-                @Override
-                public void onFailure(Call<DefaultModel> call, Throwable t) {
+                override fun onFailure(call: Call<DefaultModel?>, t: Throwable) {
                     //Método responsável pelos erros.
-                    Toast.makeText(getApplicationContext(), "Ocorreu um erro " +
-                            "no serviço.\n" + t.getMessage(), Toast.LENGTH_LONG).show();
-                    Log.e("app-people", "\n\n" + t.getMessage() + "\n\n");
+                    Toast.makeText(applicationContext, " Ocorreu um erro no serviço.${t.message}", Toast.LENGTH_LONG).show()
+                    Log.e("app-people", "deu ruim dnv...\n\n" + t.message, t)
                 }
-            });
-        } catch (Exception e) {
-            Log.e("-- Deu ruim... --\n", "-- Erro --\n\n" + e.getMessage());
+            })
+        } catch (e: Throwable) {
+            Log.e("-- Deu ruim... --\n", "-- Erro --${e.message}")
         }
     }
 }

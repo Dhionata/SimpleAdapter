@@ -1,28 +1,3 @@
-package br.com.example.meuprimeiroexemplo.model;
+package br.com.example.meuprimeiroexemplo.model
 
-import java.util.ArrayList;
-import java.util.List;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-@Data
-@Builder
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
-public class DefaultModel {
-
-    private Integer count;
-    private String next;
-    private String previous;
-    private List<People> results = new ArrayList<>();
-
-//prof. será q colocar um arraylist em vez de list n dá certo n ?
-      /*  "count":82,
-                "next":"http://swapi.dev/api/people/?page=2",
-                "previous":null,*/
-}
+open class DefaultModel(val count: Int, val next: String, val previous: String, val results: List<People> = ArrayList())

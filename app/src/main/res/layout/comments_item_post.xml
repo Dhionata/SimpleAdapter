@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -14,65 +16,100 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@android:color/darker_gray"
             android:text="@string/post_id" />
 
         <TextView
             android:id="@+id/txtItemPostId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textIsSelectable="true" />
 
         <TextView
             android:id="@+id/txtItemIdStatic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/id" />
+            android:background="@android:color/darker_gray"
+            android:hint="@string/id"
+            android:textIsSelectable="false" />
 
         <TextView
             android:id="@+id/txtItemId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textIsSelectable="true" />
 
         <TextView
             android:id="@+id/txtItemNomeStatic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@android:color/darker_gray"
             android:text="@string/nome" />
 
         <TextView
             android:id="@+id/txtItemNome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textIsSelectable="true" />
 
         <TextView
             android:id="@+id/textItemEmailStatic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@android:color/darker_gray"
             android:text="@string/e_mail" />
 
         <TextView
             android:id="@+id/txtItemEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textIsSelectable="true" />
 
         <TextView
             android:id="@+id/txtItemBodyStatic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@android:color/darker_gray"
             android:text="@string/body" />
 
         <TextView
             android:id="@+id/txtItemBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textIsSelectable="true" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:textIsSelectable="false" />
+
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="FULL_BANNER"
+            ads:adUnitId="ca-app-pub-2668709174006054~5538277267" />
+
+        <!--<com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ads:adSize="FULL_BANNER"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+-->
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

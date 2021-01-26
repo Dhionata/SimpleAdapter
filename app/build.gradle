@@ -2,19 +2,17 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-
-    compileOptions {
-
-        sourceCompatibility JavaVersion.VERSION_1_10
-        targetCompatibility JavaVersion.VERSION_1_10
+    buildFeatures {
+        viewBinding true
     }
 
-    kotlinOptions {
-        jvmTarget = "15"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "br.com.example.meuprimeiroexemplo"
@@ -35,25 +33,32 @@ android {
 }
 
 dependencies {
+    implementation "com.squareup.okhttp3:okhttp:3.14.9"
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'com.google.android.gms:play-services-ads:19.7.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     //Passo 2
     //Colocar dependências e configurações para o retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.7.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
+
+    //desisto de atualiar a versão do retrofit, foram mais de 5horas.
+    implementation 'com.squareup.retrofit2:retrofit:2.6.4'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.4'
 
     //implementation 'NOME PACOTE:NOME: PRODUTO: VERSION PRODUTO
     implementation 'com.google.code.gson:gson:2.8.6'
 
     //noinspection AnnotationProcessorOnCompilePath
-    compileOnly 'org.projectlombok:lombok:1.18.16'
-    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    /*compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'*/
+
+    implementation 'com.google.android.gms:play-services-ads:19.7.0'
 
     //noinspection AnnotationProcessorOnCompilePath
     testCompileOnly 'org.projectlombok:lombok:1.18.16'

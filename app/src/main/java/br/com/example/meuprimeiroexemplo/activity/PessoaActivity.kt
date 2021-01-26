@@ -1,39 +1,38 @@
-package br.com.example.meuprimeiroexemplo.activity;
+package br.com.example.meuprimeiroexemplo.activity
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.os.Bundle
+import android.view.View
+import android.widget.Toast
+import br.com.example.meuprimeiroexemplo.R
+import br.com.example.meuprimeiroexemplo.debug.DebugActivity
 
-import br.com.example.meuprimeiroexemplo.R;
-import br.com.example.meuprimeiroexemplo.debug.DebugActivity;
 
-public class PessoaActivity extends DebugActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pessoa);
+class PessoaActivity : DebugActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_pessoa)
     }
 
-    public void exibir(View view) {
+    fun exibir(view: View?) {
         // Entrada
-        EditText textNome = findViewById(R.id.textNome);
-        EditText textSobreNome = findViewById(R.id.textSobreNome);
-        EditText textEmail = findViewById(R.id.textEmail);
-        EditText textPhone = findViewById(R.id.textPhone);
+        val textNome = R.id.textNome
+        val textSobreNome = R.id.textSobreNome
+        val textEmail = R.id.textEmail
+        val textPhone = R.id.textPhone
         // Processamento
-        String nome, sobrenome, email, telefone;
-        nome = textNome.getText().toString();
-        sobrenome = textSobreNome.getText().toString();
-        email = textEmail.getText().toString();
-        telefone = textPhone.getText().toString();
+        val nome: String
+        val sobrenome: String
+        val email: String
+        val telefone: String
+        nome = textNome.toString()
+        sobrenome = textSobreNome.toString()
+        email = textEmail.toString()
+        telefone = textPhone.toString()
         //Saída
-        String dados;
-        dados = String.format("Os valores informados foram: \n%s\n%s\n%s\n%s", nome, sobrenome, email, telefone);
+        val dados: String
+        dados = String.format("Os valores informados foram: \n%s\n%s\n%s\n%s", nome, sobrenome, email, telefone)
 
         //Exibir dados para o usuário
-
-        Toast.makeText(getApplication(), dados, Toast.LENGTH_LONG).show();
+        Toast.makeText(application, dados, Toast.LENGTH_LONG).show()
     }
 }

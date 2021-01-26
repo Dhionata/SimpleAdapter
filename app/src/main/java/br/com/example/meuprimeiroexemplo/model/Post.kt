@@ -1,17 +1,5 @@
-package br.com.example.meuprimeiroexemplo.model;
+package br.com.example.meuprimeiroexemplo.model
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-@Data
-@Builder
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
-public class Post {
-    private Integer userId, id;
-    private String title,body;
+open class Post(val userId: Int, val title: String, val body: String) {
+    var id: Int? = null
 }

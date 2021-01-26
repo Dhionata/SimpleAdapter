@@ -3,9 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="br.com.example.meuprimeiroexemplo">
 
+
+    <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
@@ -14,8 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:ignore="GoogleAppIndexingWarning"
-        tools:targetApi="m">
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".debug.DebugActivity" />
         <activity android:name=".activity.PostActivity" />
         <activity android:name=".activity.PeopleActivity" />
@@ -30,5 +35,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2668709174006054~5538277267" />
     </application>
 </manifest>

@@ -44,7 +44,7 @@
             android:text="On = BaseAdapter\nOff = SimpleAdapter"
             tools:ignore="HardcodedText" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnAddPost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

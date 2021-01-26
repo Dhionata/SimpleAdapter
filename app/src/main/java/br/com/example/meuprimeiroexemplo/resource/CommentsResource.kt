@@ -1,34 +1,25 @@
-package br.com.example.meuprimeiroexemplo.resource;
+package br.com.example.meuprimeiroexemplo.resource
 
-import java.util.List;
+import br.com.example.meuprimeiroexemplo.model.Comments
+import retrofit2.Call
+import retrofit2.http.*
 
-import br.com.example.meuprimeiroexemplo.model.Comments;
-import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.DELETE;
-import retrofit2.http.GET;
-import retrofit2.http.PATCH;
-import retrofit2.http.POST;
-import retrofit2.http.PUT;
-import retrofit2.http.Path;
-
-public interface CommentsResource<T, E> {
-
+interface CommentsResource<T, E> {
     @POST("comments")
-    Call<Comments> post(@Body Comments comment);
+    fun post(@Body comment: Comments): Call<Comments>
 
     @GET("comments/{id}")
-    Call<Comments> get(@Path("id") Integer id);
+    operator fun get(@Path("id") id: Int): Call<Comments>
 
     @GET("comments")
-    Call<List<Comments>> get();
+    fun get(): Call<List<Comments>>
 
     @PUT("comments/{id}")
-    Call<Void> put(@Path("id") Integer id, @Body Comments comment);
+    fun put(@Path("id") id: Int, @Body comment: Comments): Call<Void>
 
     @PATCH("comments/{id}")
-    Call<Void> patc(@Path("id") Integer id, @Body Comments comment);
+    fun patc(@Path("id") id: Int, @Body comment: Comments?): Call<Void>
 
     @DELETE("comments/{id}")
-    Call<Void> delete(@Path("id") Integer id);
+    fun delete(@Path("id") id: Int): Call<Void>
 }
