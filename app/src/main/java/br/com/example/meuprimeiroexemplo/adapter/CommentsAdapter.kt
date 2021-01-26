@@ -6,13 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import android.widget.Toast
 import br.com.example.meuprimeiroexemplo.R
 import br.com.example.meuprimeiroexemplo.model.Comments
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.*
 
 class CommentsAdapter(private val context: Context, private val comments: List<Comments>) : BaseAdapter() {
+
+    init {
+        MobileAds.initialize(context)
+    }
+
     override fun getCount(): Int {
         return comments.size
     }
@@ -54,10 +58,41 @@ class CommentsAdapter(private val context: Context, private val comments: List<C
             txtItemNome.text = comments.name
             txtItemEmail.text = comments.email
             txtItemBody.text = comments.body
-            MobileAds.initialize(null)
-            val adRequest = AdRequest.Builder().build()
+
             val adware: AdView = converterVisualizacao.findViewById(R.id.adView3)
+            val adRequest = AdRequest.Builder().build()
             adware.loadAd(adRequest)
+
+            adware.adListener = object : AdListener() {
+                override fun onAdLoaded() {
+                    Toast.makeText(null, "Cara, o Ad carregou ;D", Toast.LENGTH_SHORT).show()
+                    println("AD Carregou??")
+                }
+
+                override fun onAdFailedToLoad(adError: LoadAdError) {
+                    Toast.makeText(null, "Cara, o Ad NÃO carregou ;-;", Toast.LENGTH_SHORT).show()
+                    println("AD não Carregou??")
+                }
+
+                override fun onAdOpened() {
+                    // Code to be executed when an ad opens an overlay that
+                    // covers the screen.
+                }
+
+                override fun onAdClicked() {
+                    // Code to be executed when the user clicks on an ad.
+                }
+
+                override fun onAdLeftApplication() {
+                    // Code to be executed when the user has left the app.
+                }
+
+                override fun onAdClosed() {
+                    // Code to be executed when the user is about to return
+                    // to the app after tapping on an ad.
+                }
+            }
+
         }
         return converterVisualizacao!!
     }

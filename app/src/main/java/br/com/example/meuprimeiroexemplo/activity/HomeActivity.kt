@@ -6,9 +6,7 @@ import android.view.View
 import android.widget.Toast
 import br.com.example.meuprimeiroexemplo.R
 import br.com.example.meuprimeiroexemplo.debug.DebugActivity
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.*
 
 
 class HomeActivity : DebugActivity() {
@@ -18,11 +16,43 @@ class HomeActivity : DebugActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        MobileAds.initialize(this@HomeActivity) {}
-
+        MobileAds.initialize(applicationContext) {}
         mAdView = findViewById(R.id.adView)
+
         val adRequest = AdRequest.Builder().build()
+        //RequestConfiguration.Builder().setTestDeviceIds(listOf("840B3EC26EE84AC7EC414306F395FE3E"))
+
         mAdView.loadAd(adRequest)
+
+        mAdView.adListener = object : AdListener() {
+            override fun onAdLoaded() {
+                Toast.makeText(applicationContext, "Cara, o Ad carregou ;D", Toast.LENGTH_LONG).show()
+                println("AD Carregou??")
+            }
+
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                Toast.makeText(applicationContext, "Cara, o Ad NÃO carregou ;-;", Toast.LENGTH_LONG).show()
+                println("AD não Carregou??")
+            }
+
+            override fun onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+
+            override fun onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            override fun onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            override fun onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+        }
     }
 
     fun exibir(view: View) {

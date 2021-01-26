@@ -11,9 +11,7 @@ import br.com.example.meuprimeiroexemplo.bootstrap.APIClient
 import br.com.example.meuprimeiroexemplo.debug.DebugActivity
 import br.com.example.meuprimeiroexemplo.model.Comments
 import br.com.example.meuprimeiroexemplo.resource.CommentsResource
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,10 +23,42 @@ open class CommentsActivity : DebugActivity() {
         setContentView(R.layout.activity_comments)
 
         //AdMob ;D
-        MobileAds.initialize(this)
+
+        MobileAds.initialize(applicationContext) {}
         val mAdView = findViewById<AdView>(R.id.adView2)
+
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
+
+        mAdView.adListener = object : AdListener() {
+            override fun onAdLoaded() {
+                Toast.makeText(applicationContext, "Cara, o Ad carregou ;D", Toast.LENGTH_SHORT).show()
+                println("AD Carregou??")
+            }
+
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                Toast.makeText(applicationContext, "Cara, o Ad NÃO carregou ;-;", Toast.LENGTH_SHORT).show()
+                println("AD não Carregou??")
+            }
+
+            override fun onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+
+            override fun onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            override fun onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            override fun onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+        }
     }
 
     fun adicionarComments(view: View?) {

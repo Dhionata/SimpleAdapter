@@ -3,10 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="br.com.example.meuprimeiroexemplo">
 
-
-    <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
-
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -21,6 +17,11 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2668709174006054~5538277267" />
+
         <activity android:name=".debug.DebugActivity" />
         <activity android:name=".activity.PostActivity" />
         <activity android:name=".activity.PeopleActivity" />
@@ -31,13 +32,8 @@
         <activity android:name=".activity.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-2668709174006054~5538277267" />
     </application>
 </manifest>

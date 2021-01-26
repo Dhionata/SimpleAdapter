@@ -12,11 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         ads:adSize="FULL_BANNER"
-        ads:adUnitId="ca-app-pub-2668709174006054~5538277267"
+        ads:adUnitId="ca-app-pub-2668709174006054/3227399578"
         ads:layout_constraintBottom_toBottomOf="parent"
         ads:layout_constraintTop_toTopOf="@+id/btnAddres"
         ads:layout_constraintVertical_bias="1.0"
         tools:layout_editor_absoluteX="0dp" />
+    <!--ads:adUnitId="ca-app-pub-2668709174006054/3227399578"-->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnAddres"
