@@ -8,12 +8,12 @@ import retrofit2.converter.gson.GsonConverterFactory
  * Converter JSON para objeto.
  */
 object PeopleAPI {
-    //No retrofit você precisa colocar o  / (slash).
-    //Prezado, por gentileza, informar fim de instrução (/) no endereço informado.
-    private const val ENDPOINT = "https://swapi.dev/api/"
-    val client: Retrofit
-        get() = Retrofit.Builder()
-                .baseUrl(ENDPOINT)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+	//No retrofit você precisa colocar o  / (slash).
+	//Prezado, por gentileza, informar fim de instrução (/) no endereço informado.
+	private const val ENDPOINT = "https://swapi.dev/api/"
+	val client: Retrofit
+		get() = Retrofit.Builder()
+			.baseUrl(ENDPOINT)
+			.addConverterFactory(GsonConverterFactory.create())
+			.build()
 }

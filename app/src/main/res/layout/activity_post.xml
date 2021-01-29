@@ -14,7 +14,7 @@
             android:id="@+id/txtUserId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints=""
+            android:autofillHints="@string/informe_seu_userid"
             android:ems="10"
             android:hint="@string/informe_seu_userid"
             android:inputType="textPersonName" />
@@ -23,7 +23,7 @@
             android:id="@+id/txtTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints=""
+            android:autofillHints="@string/informe_o_t_tulo"
             android:ems="10"
             android:hint="@string/informe_o_t_tulo"
             android:inputType="textPersonName" />
@@ -32,7 +32,7 @@
             android:id="@+id/txtBody"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="oi"
+            android:autofillHints="@string/informe_descri_o"
             android:ems="10"
             android:hint="@string/informe_descri_o"
             android:inputType="textPersonName" />

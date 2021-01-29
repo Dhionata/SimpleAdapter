@@ -11,17 +11,17 @@ import retrofit2.converter.gson.GsonConverterFactory
  * Converter JSON para objeto.
  */
 object APIClient {
-    //No retrofit você precisa colocar o  / (slash).
-    //Prezado, por gentileza, informar fim de instrução (/) no endereço informado.
-    private const val ENDPOINT = "https://jsonplaceholder.typicode.com/"
-    val client: Retrofit?
-        get() = try {
-            Retrofit.Builder()
-                    .baseUrl(ENDPOINT)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
-        } catch (e: RuntimeException) {
-            Toast.makeText(null, "deu ruimno APICLiente", Toast.LENGTH_LONG).show()
-            null
-        }
+	//No retrofit você precisa colocar o  / (slash).
+	//Prezado, por gentileza, informar fim de instrução (/) no endereço informado.
+	private const val ENDPOINT = "https://jsonplaceholder.typicode.com/"
+	val client: Retrofit?
+		get() = try {
+			Retrofit.Builder()
+				.baseUrl(ENDPOINT)
+				.addConverterFactory(GsonConverterFactory.create())
+				.build()
+		} catch (e: RuntimeException) {
+			Toast.makeText(null, "deu ruimno APICLiente", Toast.LENGTH_LONG).show()
+			null
+		}
 }
