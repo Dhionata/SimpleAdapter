@@ -48,8 +48,8 @@ dependencies {
     //Colocar dependências e configurações para o retrofit
 
     //desisto de atualiar a versão do retrofit, foram mais de 5horas.
-    implementation 'com.squareup.retrofit2:retrofit:2.6.4'
-    implementation 'com.squareup.retrofit2:converter-gson:2.6.4'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     //implementation 'NOME PACOTE:NOME: PRODUTO: VERSION PRODUTO
     implementation 'com.google.code.gson:gson:2.8.6'
@@ -61,8 +61,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads:19.7.0'
 
     //noinspection AnnotationProcessorOnCompilePath
-    testCompileOnly 'org.projectlombok:lombok:1.18.16'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+   /* testCompileOnly 'org.projectlombok:lombok:1.18.16'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'*/
     implementation "androidx.core:core-ktx:1.3.2"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
