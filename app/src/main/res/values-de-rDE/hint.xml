@@ -33,6 +33,7 @@
     <string name="birth_year">Geburtsjahr</string>
     <string name="gender">Geschlecht</string>
     <string name="post_id">Post ID</string>
+    <string name="nome">Name</string>
     <string name="e_mail">E-mail</string>
     <string name="body">Body</string>
     <string name="chuck_norris">Chuck Norris</string>

@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
-            android:onClick="adicionarComments"
+            android:onClick="addComments"
             android:text="@string/adicionar_postar" />
 
         <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"

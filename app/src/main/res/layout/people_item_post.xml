@@ -26,7 +26,9 @@
             android:id="@+id/textName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textIsSelectable="true" />
+            android:contentDescription="@android:string/autofill"
+            android:textIsSelectable="true"
+            android:textSize="49sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -39,7 +41,9 @@
             android:id="@+id/textHeight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textIsSelectable="true" />
+            android:contentDescription="@android:string/autofill"
+            android:textIsSelectable="true"
+            android:textSize="49sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -52,7 +56,9 @@
             android:id="@+id/textMass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textIsSelectable="true" />
+            android:contentDescription="@android:string/autofill"
+            android:textIsSelectable="true"
+            android:textSize="49sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -65,7 +71,9 @@
             android:id="@+id/textHairColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textIsSelectable="true" />
+            android:contentDescription="@android:string/autofill"
+            android:textIsSelectable="true"
+            android:textSize="49sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -78,7 +86,9 @@
             android:id="@+id/textSkinColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textIsSelectable="true" />
+            android:contentDescription="@android:string/autofill"
+            android:textIsSelectable="true"
+            android:textSize="49sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -91,7 +101,9 @@
             android:id="@+id/textEyeColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textIsSelectable="true" />
+            android:contentDescription="@android:string/autofill"
+            android:textIsSelectable="true"
+            android:textSize="49sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -104,7 +116,9 @@
             android:id="@+id/textBirthYear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textIsSelectable="true" />
+            android:contentDescription="@android:string/autofill"
+            android:textIsSelectable="true"
+            android:textSize="49sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -117,7 +131,9 @@
             android:id="@+id/textGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textIsSelectable="true" />
+            android:contentDescription="@android:string/autofill"
+            android:textIsSelectable="true"
+            android:textSize="48sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -130,7 +146,9 @@
             android:id="@+id/textHomeWorld"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textIsSelectable="true" />
+            android:contentDescription="@android:string/autofill"
+            android:textIsSelectable="true"
+            android:textSize="49sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -143,6 +161,7 @@
             android:id="@+id/textFilms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:contentDescription="@android:string/autofill"
             android:textIsSelectable="true" />
 
 
@@ -157,6 +176,7 @@
             android:id="@+id/textSpecies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:contentDescription="@android:string/autofill"
             android:textIsSelectable="true" />
 
         <TextView
@@ -170,6 +190,7 @@
             android:id="@+id/textVehicles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:contentDescription="@android:string/autofill"
             android:textIsSelectable="true" />
 
         <TextView

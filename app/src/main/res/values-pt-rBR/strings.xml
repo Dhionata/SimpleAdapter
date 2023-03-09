@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Meu primeiro exemplo</string>
     <string name="informe_seu_userid">Informe seu UserID.</string>
     <string name="informe_o_t_tulo">Informe o título</string>
     <string name="informe_descri_o">Informe descrição</string>
@@ -8,15 +9,40 @@
     <string name="bot_o_de_exclus_o">botão de exclusão</string>
     <string name="estou_na_tela_de_usu_rio">Estou na tela de Usuário</string>
     <string name="estou_na_tela_de_addres">Estou na tela de Addres</string>
+    <string name="addres">Endereço</string>
     <string name="pessoa">Pessoa</string>
+    <string name="user">Usuário</string>
+    <string name="post">Publicar</string>
     <string name="informe_o_postid">Informe o PostID</string>
     <string name="informe_o_nome">Informe o Nome</string>
     <string name="informe_o_email">Informe o Email</string>
     <string name="informe_o_body">Informe o Body</string>
+    <string name="comments">Comentários</string>
     <string name="informe_seu_e_mail">informe seu e-mail</string>
     <string name="informe_seu_sobrenome">informe seu sobrenome</string>
     <string name="exibir">Exibir</string>
     <string name="informe_o_phone">informe o phone</string>
+    <string name="people">Pessoas</string>
+    <string name="name">Nome</string>
+    <string name="height">Altura</string>
+    <string name="mass">Massa</string>
+    <string name="hair_color">Cor de cabelo</string>
+    <string name="skin_color">Cor da pele</string>
+    <string name="eye_color">Cor dos olhos</string>
+    <string name="birth_year">Ano de Nascimento</string>
+    <string name="gender">Gênero</string>
+    <string name="post_id">ID da postagem</string>
     <string name="nome">Nome</string>
+    <string name="e_mail">E-mail</string>
+    <string name="body">Corpo</string>
+    <string name="chuck_norris">Chuck Norris</string>
     <string name="usar_api">Usar API</string>
+    <string name="homeworld">Planeta Natal</string>
+    <string name="films">Filmes</string>
+    <string name="species">Espécies</string>
+    <string name="vehicles">Veículos</string>
+    <string name="starships">naves estelares</string>
+    <string name="created">Criada</string>
+    <string name="edited">Editado</string>
+    <string name="url">URL</string>
 </resources>

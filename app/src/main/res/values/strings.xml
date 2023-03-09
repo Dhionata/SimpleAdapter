@@ -8,7 +8,7 @@
     <string name="bot_o_de_exclus_o">botão de exclusão</string>
     <string name="estou_na_tela_de_usu_rio">Estou na tela de Usuário</string>
     <string name="estou_na_tela_de_addres">Estou na tela de Address</string>
-    <string name="addres">Address</string>
+    <string name="addres">Endereço</string>
     <string name="pessoa">Pessoa</string>
     <string name="user">User</string>
     <string name="post">Post</string>
@@ -43,5 +43,5 @@
     <string name="starships">StarShips</string>
     <string name="created">Created</string>
     <string name="edited">Edited</string>
-    <string name="url">Url</string>
+    <string name="url">URL</string>
 </resources>
