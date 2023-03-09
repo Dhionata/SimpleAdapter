@@ -66,6 +66,7 @@ dependencies {
      testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'*/
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    androidTestImplementation 'org.junit.jupiter:junit-jupiter'
 }
 repositories {
     maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
