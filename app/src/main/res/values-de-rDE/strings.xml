@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="baseadapter">BaseAdapter</string>
+    <string name="simpleadapter">SimpleAdapter</string>
+    <string name="arrayadapter">ArrayAdapter</string>
+</resources>

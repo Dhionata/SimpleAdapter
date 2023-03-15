@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
-import androidx.appcompat.widget.SwitchCompat
 import br.com.example.meuprimeiroexemplo.R
 import br.com.example.meuprimeiroexemplo.adapter.PostAdapter
 import br.com.example.meuprimeiroexemplo.debug.DebugActivity
 import br.com.example.meuprimeiroexemplo.model.Post
+import kotlin.collections.set
 
 class PostActivity : DebugActivity() {
     private val lista: MutableList<HashMap<String, String?>> = ArrayList()
@@ -32,16 +32,17 @@ class PostActivity : DebugActivity() {
             userId = txtUserId.text.toString().toInt()
             title = txtTitle.text.toString()
             body = txtBody.text.toString()
-            val swithc = findViewById<SwitchCompat>(R.id.switch1)
-            if (swithc.isChecked) {
-                baseAdapter(userId, title, body)
-            } else {
-                simpleAdapter(userId, title, body)
+            val swithc = findViewById<RadioGroup>(R.id.RadioGroup)
+            when (swithc.checkedRadioButtonId) {
+                R.id.switch1 -> baseAdapter(userId, title, body)
+                R.id.switch2 -> simpleAdapter(userId, title, body)
+                R.id.switch3 -> arrayAdapter(userId, title, body)
             }
         } catch (e: NumberFormatException) {
-            Log.i("formatação", "deu ruim..." + e.message)
+            System.err.println("Err: ${e.message}")
+            Log.e("formatação", "deu ruim...${e.message}")
             Toast.makeText(
-                applicationContext, "formatação" + e.message,
+                applicationContext, "formatação ${e.message}",
                 Toast.LENGTH_LONG
             ).show()
         }
@@ -83,20 +84,26 @@ class PostActivity : DebugActivity() {
             val listViewPost: ListView = findViewById(R.id.listViewPost)
             listViewPost.adapter = simpleAdapter
         } catch (e: RuntimeException) {
-            Log.i("Falha SimpleAdapter", "Deu ruim...\n${e.message}", e)
+            Log.e("Falha SimpleAdapter", "Deu ruim...\n${e.message}", e)
             Toast.makeText(
                 applicationContext,
                 "Falha SimpleAdapter ${e.message}",
                 Toast.LENGTH_LONG
             ).show()
         }
-    } /*private void arrayAdapter(String userId, String title, String body) {
+    }
 
-        preencherObjetoLista(userId, title, body);
+    private fun arrayAdapter(userId: Int, title: String, body: String) {
 
-        listViewPost = findViewById(R.id.listViewPost);
+        preencherObjetoLista(userId, title, body)
 
-        ArrayAdapter<Post> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, postagens);
-        listViewPost.setAdapter(arrayAdapter);
-    }*/
+        val listViewPost: ListView = findViewById(R.id.listViewPost)
+
+        val arrayAdapter: ArrayAdapter<Post> = ArrayAdapter<Post>(
+            applicationContext,
+            android.R.layout.simple_list_item_1,
+            postagens
+        )
+        listViewPost.adapter = arrayAdapter
+    }
 }

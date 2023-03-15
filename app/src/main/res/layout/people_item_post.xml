@@ -1,248 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
 
     <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_width="match_parent"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:contentDescription="@string/people"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             app:srcCompat="@drawable/chuck_norris" />
 
         <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:text="@string/name"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
+            android:id="@+id/textName"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:textIsSelectable="true"
-            android:textSize="49sp" />
+            android:textSize="20sp" />
 
         <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:text="@string/height"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textHeight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
+            android:id="@+id/textHeight"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:textIsSelectable="true"
-            android:textSize="49sp" />
+            android:textSize="20sp" />
 
         <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:text="@string/mass"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textMass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
+            android:id="@+id/textMass"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:textIsSelectable="true"
-            android:textSize="49sp" />
+            android:textSize="20sp" />
 
         <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:text="@string/hair_color"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textHairColor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
+            android:id="@+id/textHairColor"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:textIsSelectable="true"
-            android:textSize="49sp" />
+            android:textSize="20sp" />
 
         <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:text="@string/skin_color"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textSkinColor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
+            android:id="@+id/textSkinColor"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:textIsSelectable="true"
-            android:textSize="49sp" />
+            android:textSize="20sp" />
 
         <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:text="@string/eye_color"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textEyeColor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
+            android:id="@+id/textEyeColor"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:textIsSelectable="true"
-            android:textSize="49sp" />
+            android:textSize="20sp" />
 
         <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:text="@string/birth_year"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textBirthYear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
+            android:id="@+id/textBirthYear"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:textIsSelectable="true"
-            android:textSize="49sp" />
+            android:textSize="20sp" />
 
         <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:text="@string/gender"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textGender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
+            android:id="@+id/textGender"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:textIsSelectable="true"
             android:textSize="48sp" />
 
         <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:text="@string/homeworld"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textHomeWorld"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
+            android:id="@+id/textHomeWorld"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:textIsSelectable="true"
-            android:textSize="49sp" />
+            android:textSize="20sp" />
 
         <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:text="@string/films"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textFilms"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
+            android:id="@+id/textFilms"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:textIsSelectable="true" />
 
 
         <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:text="@string/species"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textSpecies"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
+            android:id="@+id/textSpecies"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:textIsSelectable="true" />
 
         <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:text="@string/vehicles"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textVehicles"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
+            android:id="@+id/textVehicles"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:textIsSelectable="true" />
 
         <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:text="@string/starships"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textStarShips"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:textIsSelectable="true" />
 
         <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:text="@string/created"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textCreated"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:textIsSelectable="true" />
 
         <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:text="@string/edited"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textEdited"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:textIsSelectable="true" />
 
         <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:text="@string/url"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textUrl"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_width="match_parent"
             android:textIsSelectable="true" />
 
     </LinearLayout>

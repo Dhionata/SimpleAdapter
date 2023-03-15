@@ -6,6 +6,10 @@ android {
         viewBinding true
     }
 
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
     compileOptions {
         sourceCompatibility kotlin_version
         targetCompatibility kotlin_version
@@ -31,6 +35,10 @@ android {
         }
     }
     namespace 'br.com.example.meuprimeiroexemplo'
+    dependenciesInfo {
+        includeInApk true
+        includeInBundle true
+    }
 }
 
 dependencies {

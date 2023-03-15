@@ -44,4 +44,7 @@
     <string name="created">Created</string>
     <string name="edited">Edited</string>
     <string name="url">URL</string>
+    <string name="baseadapter">BaseAdapter</string>
+    <string name="simpleadapter">SimpleAdapter</string>
+    <string name="arrayadapter">ArrayAdapter</string>
 </resources>
