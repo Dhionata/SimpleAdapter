@@ -6,7 +6,12 @@ import android.view.View
 import android.widget.Toast
 import br.com.example.meuprimeiroexemplo.R
 import br.com.example.meuprimeiroexemplo.debug.DebugActivity
-import com.google.android.gms.ads.*
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.RequestConfiguration
 
 
 class HomeActivity : DebugActivity() {
@@ -68,26 +73,32 @@ class HomeActivity : DebugActivity() {
                 intent = Intent(applicationContext, AddresActivity::class.java)
                 startActivity(intent)
             }
+
             R.id.btnUse -> {
                 intent = Intent(applicationContext, UserActivity::class.java)
                 startActivity(intent)
             }
+
             R.id.btnPessoa -> {
                 intent = Intent(applicationContext, PessoaActivity::class.java)
                 startActivity(intent)
             }
+
             R.id.btnPost -> {
                 intent = Intent(applicationContext, PostActivity::class.java)
                 startActivity(intent)
             }
+
             R.id.btnComments -> {
                 intent = Intent(applicationContext, CommentsActivity::class.java)
                 startActivity(intent)
             }
+
             R.id.btnPeople -> {
                 intent = Intent(applicationContext, PeopleActivity::class.java)
                 startActivity(intent)
             }
+
             else -> Toast.makeText(applicationContext, "Opção inválida.", Toast.LENGTH_LONG).show()
         }
     }

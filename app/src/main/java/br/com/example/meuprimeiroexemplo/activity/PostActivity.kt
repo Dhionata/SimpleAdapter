@@ -3,7 +3,13 @@ package br.com.example.meuprimeiroexemplo.activity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.ListAdapter
+import android.widget.ListView
+import android.widget.RadioGroup
+import android.widget.SimpleAdapter
+import android.widget.TextView
+import android.widget.Toast
 import br.com.example.meuprimeiroexemplo.R
 import br.com.example.meuprimeiroexemplo.adapter.PostAdapter
 import br.com.example.meuprimeiroexemplo.debug.DebugActivity

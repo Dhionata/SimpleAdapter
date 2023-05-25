@@ -9,7 +9,11 @@ import android.widget.TextView
 import android.widget.Toast
 import br.com.example.meuprimeiroexemplo.R
 import br.com.example.meuprimeiroexemplo.model.Comments
-import com.google.android.gms.ads.*
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
 
 class CommentsAdapter(private val context: Context, private val comments: List<Comments>) :
     BaseAdapter() {

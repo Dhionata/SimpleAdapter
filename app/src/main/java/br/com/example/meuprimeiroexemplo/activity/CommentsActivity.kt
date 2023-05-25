@@ -11,7 +11,11 @@ import br.com.example.meuprimeiroexemplo.bootstrap.APIClient
 import br.com.example.meuprimeiroexemplo.debug.DebugActivity
 import br.com.example.meuprimeiroexemplo.model.Comments
 import br.com.example.meuprimeiroexemplo.resource.CommentsResource
-import com.google.android.gms.ads.*
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
