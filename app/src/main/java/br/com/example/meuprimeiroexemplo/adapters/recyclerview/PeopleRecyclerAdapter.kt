@@ -66,8 +66,8 @@ class PeopleRecyclerAdapter(
                 txtItemCreated.text = person.created
                 txtItemEdited.text = person.edited
                 txtItemUrl.text = person.url
-                if (Log.isLoggable("PeopleRecyclerAdapter", Log.INFO)) {
-                    Log.i("PeopleRecyclerAdapter", person.toString())
+                if (Log.isLoggable(ViewHolder::bind.toString(), Log.INFO)) {
+                    Log.i(ViewHolder::bind.toString(), person.toString())
                 }
             } catch (e: Exception) {
                 Log.e("Vixi...", "Deu ruim.... ${e.message}")

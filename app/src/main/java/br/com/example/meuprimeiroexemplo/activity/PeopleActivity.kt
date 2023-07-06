@@ -67,7 +67,12 @@ class PeopleActivity : DebugActivity() {
                             "Ocorreu um erro no processamento.${throwable.message}",
                             Toast.LENGTH_LONG
                         ).show()
-                        Log.e("lista -- Erro $", "Deu ruim...\n\n ${throwable.message}", throwable)
+                        Log.e(
+                            PeopleActivity::listarPosts.toString(), "Deu ruim...${
+                                throwable.message
+                            }",
+                            throwable
+                        )
                     }
                 }
 
@@ -78,11 +83,14 @@ class PeopleActivity : DebugActivity() {
                         " Ocorreu um erro no serviço.${throwable.message}",
                         Toast.LENGTH_LONG
                     ).show()
-                    Log.e("app-people", "deu ruim dnv...\n\n ${throwable.message}", throwable)
+                    Log.e(
+                        PeopleActivity::listarPosts.toString(),
+                        "deu ruim dnv...${throwable.message}"
+                    )
                 }
             })
         } catch (throwable: Throwable) {
-            Log.e("-- Deu ruim... --\n", "-- Erro --${throwable.message}")
+            Log.e(PeopleActivity::listarPosts.toString(), "-- Erro --${throwable.message}")
         }
     }
 }

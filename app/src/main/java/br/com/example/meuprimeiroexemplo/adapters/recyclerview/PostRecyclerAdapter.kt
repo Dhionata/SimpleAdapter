@@ -47,8 +47,8 @@ class PostRecyclerAdapter(
             txtItemBody.text = post.body
 
             btnExcluir.setOnClickListener {
-                posts.remove(post)
-                notifyItemRemoved(posts.indexOf(post))
+                posts.removeAt(bindingAdapterPosition)
+                notifyItemRemoved(bindingAdapterPosition)
             }
 
             btnEditar.setOnClickListener {
@@ -56,7 +56,7 @@ class PostRecyclerAdapter(
                     post.userId = userId.text.toString().toInt()
                     post.title = title.text.toString()
                     post.body = body.text.toString()
-                    notifyItemChanged(posts.indexOf(post))
+                    notifyItemChanged(bindingAdapterPosition)
                 } catch (e: Exception) {
                     System.err.println("Err: ${e.message}")
                     Log.e("formatação", "deu ruim...${e.message}")

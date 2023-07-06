@@ -2,21 +2,26 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:theme="@style/AppTheme">
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/people"
             app:srcCompat="@drawable/chuck_norris" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/name"
             android:textSize="20sp"
@@ -24,14 +29,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textName"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
-
             android:textSize="20sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/height"
             android:textSize="20sp"
@@ -39,13 +43,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textHeight"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
             android:textSize="20sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/mass"
             android:textSize="20sp"
@@ -53,13 +57,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textMass"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
             android:textSize="20sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hair_color"
             android:textSize="20sp"
@@ -67,13 +71,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textHairColor"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
             android:textSize="20sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/skin_color"
             android:textSize="20sp"
@@ -81,13 +85,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textSkinColor"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
             android:textSize="20sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/eye_color"
             android:textSize="20sp"
@@ -95,13 +99,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textEyeColor"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
             android:textSize="20sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/birth_year"
             android:textSize="20sp"
@@ -109,13 +113,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textBirthYear"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
             android:textSize="20sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/gender"
             android:textSize="20sp"
@@ -123,13 +127,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textGender"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
             android:textSize="20sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/homeworld"
             android:textSize="20sp"
@@ -137,13 +141,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textHomeWorld"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill"
             android:textSize="20sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/films"
             android:textSize="20sp"
@@ -151,13 +155,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textFilms"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill" />
 
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/species"
             android:textSize="20sp"
@@ -165,12 +169,12 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textSpecies"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/vehicles"
             android:textSize="20sp"
@@ -178,12 +182,12 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textVehicles"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@android:string/autofill" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/starships"
             android:textSize="20sp"
@@ -191,11 +195,11 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textStarShips"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/created"
             android:textSize="20sp"
@@ -203,11 +207,11 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textCreated"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/edited"
             android:textSize="20sp"
@@ -215,11 +219,11 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textEdited"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/url"
             android:textSize="20sp"
@@ -227,7 +231,7 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textUrl"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
