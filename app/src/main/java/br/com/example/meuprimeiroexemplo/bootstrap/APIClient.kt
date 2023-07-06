@@ -2,6 +2,7 @@
 
 package br.com.example.meuprimeiroexemplo.bootstrap
 
+import android.util.Log
 import android.widget.Toast
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -21,7 +22,8 @@ object APIClient {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         } catch (e: RuntimeException) {
-            Toast.makeText(null, "deu ruimno APICLiente", Toast.LENGTH_LONG).show()
+            Toast.makeText(null, "deu ruim no $APIClient\n${e.message}", Toast.LENGTH_LONG).show()
+            Log.e("APICliente", "Erro no $APIClient\n${e.message}")
             null
         }
 }

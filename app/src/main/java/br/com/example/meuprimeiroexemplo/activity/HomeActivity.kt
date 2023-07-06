@@ -70,7 +70,7 @@ class HomeActivity : DebugActivity() {
         val intent: Intent
         when (opcao) {
             R.id.btnAddres -> {
-                intent = Intent(applicationContext, AddresActivity::class.java)
+                intent = Intent(applicationContext, AddressActivity::class.java)
                 startActivity(intent)
             }
 

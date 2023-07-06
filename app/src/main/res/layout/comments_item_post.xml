@@ -1,112 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:layout_width="match_parent"
         android:orientation="vertical">
 
-        <TextView
-
-            android:background="@android:color/darker_gray"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="match_parent"
+            android:background="@android:color/darker_gray"
             android:text="@string/post_id"
             android:textSize="20sp" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtItemPostId"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
             android:textIsSelectable="true"
             android:textSize="20sp" />
 
-        <TextView
-            android:background="@android:color/darker_gray"
-            android:hint="@string/id"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="match_parent"
+            android:background="@android:color/darker_gray"
+            android:text="@string/id"
             android:textIsSelectable="false"
             android:textSize="20sp" />
 
-        <TextView
-            android:contentDescription="@string/id"
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtItemId"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="match_parent"
+            android:contentDescription="@string/id"
             android:textIsSelectable="true"
             android:textSize="20sp" />
 
-        <TextView
-            android:background="@android:color/darker_gray"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="match_parent"
+            android:background="@android:color/darker_gray"
             android:text="@string/nome"
             android:textSize="20sp" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtItemNome"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
             android:textIsSelectable="true"
             android:textSize="20sp" />
 
-        <TextView
-            android:background="@android:color/darker_gray"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="match_parent"
+            android:background="@android:color/darker_gray"
             android:text="@string/e_mail"
             android:textSize="20sp" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtItemEmail"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
             android:textIsSelectable="true"
             android:textSize="20sp" />
 
-        <TextView
-            android:background="@android:color/darker_gray"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="match_parent"
+            android:background="@android:color/darker_gray"
             android:text="@string/body"
             android:textSize="20sp" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtItemBody"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
             android:textIsSelectable="true"
             android:textSize="20sp" />
 
-        <TextView
-            android:background="@color/colorAccent"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="match_parent"
+            android:background="@color/colorAccent"
             android:textIsSelectable="false"
             android:textSize="20sp" />
 
         <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-            ads:adSize="FULL_BANNER"
-            ads:adUnitId="ca-app-pub-2668709174006054/7166644587"
             android:id="@+id/adView3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent" />
+            ads:adSize="FULL_BANNER"
+            ads:adUnitId="ca-app-pub-2668709174006054/7166644587" />
 
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

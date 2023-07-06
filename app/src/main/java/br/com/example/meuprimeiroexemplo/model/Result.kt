@@ -1,6 +1,6 @@
 package br.com.example.meuprimeiroexemplo.model
 
-open class Result(
+data class Result(
     var name: String,
     var height: String,
     var mass: String,

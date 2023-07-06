@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.ListView
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
 import br.com.example.meuprimeiroexemplo.R
-import br.com.example.meuprimeiroexemplo.adapter.PeopleAdapter
+import br.com.example.meuprimeiroexemplo.adapters.recyclerview.PeopleRecyclerAdapter
 import br.com.example.meuprimeiroexemplo.bootstrap.PeopleAPI
 import br.com.example.meuprimeiroexemplo.debug.DebugActivity
 import br.com.example.meuprimeiroexemplo.model.DefaultModel
@@ -24,7 +24,7 @@ class PeopleActivity : DebugActivity() {
         setContentView(R.layout.activity_people)
     }
 
-    //Métod de exemplo para listar os dados de um serviço na internet
+    //Método de exemplo para listar os dados de um serviço na internet
     //Utilizando o retrofit
     fun listarPosts(view: View) {
         //Passo 6 - Criar função para trabalhar com o retrofit
@@ -44,6 +44,7 @@ class PeopleActivity : DebugActivity() {
                 "Cara, o retrofit não tá pegando não kk${e.message}",
                 Toast.LENGTH_LONG
             ).show()
+            Log.e(PeopleActivity::listarPosts.toString(), "${e.message}")
         }
         try {
             lista?.enqueue(object : Callback<DefaultModel?> {
@@ -54,33 +55,34 @@ class PeopleActivity : DebugActivity() {
                     // O método onResponse retorna os dados do recurso(resource) consumido.
                     try {
                         val pessoas = response.body()?.results
-                        val p = PeopleAdapter(applicationContext, pessoas)
-                        val listViewPeople: ListView = findViewById(R.id.peopleList)
-                        listViewPeople.adapter = p
-                        val b = findViewById<Button>(R.id.usarAPI)
-                        b.isClickable = false
-                    } catch (e: Throwable) {
+                        val peopleRecyclerAdapter =
+                            PeopleRecyclerAdapter(applicationContext, pessoas)
+                        val recyclerViewPeople: RecyclerView = findViewById(R.id.peopleList)
+                        recyclerViewPeople.adapter = peopleRecyclerAdapter
+                        val button = findViewById<Button>(R.id.usarAPI)
+                        button.isClickable = false
+                    } catch (throwable: Throwable) {
                         Toast.makeText(
                             applicationContext,
-                            "Ocorreu um erro no processamento.${e.message}",
+                            "Ocorreu um erro no processamento.${throwable.message}",
                             Toast.LENGTH_LONG
                         ).show()
-                        Log.e("lista -- Erro $", "Deu ruim...\n\n" + e.message, e)
+                        Log.e("lista -- Erro $", "Deu ruim...\n\n ${throwable.message}", throwable)
                     }
                 }
 
-                override fun onFailure(call: Call<DefaultModel?>, t: Throwable) {
+                override fun onFailure(call: Call<DefaultModel?>, throwable: Throwable) {
                     //Método responsável pelos erros.
                     Toast.makeText(
                         applicationContext,
-                        " Ocorreu um erro no serviço.${t.message}",
+                        " Ocorreu um erro no serviço.${throwable.message}",
                         Toast.LENGTH_LONG
                     ).show()
-                    Log.e("app-people", "deu ruim dnv...\n\n" + t.message, t)
+                    Log.e("app-people", "deu ruim dnv...\n\n ${throwable.message}", throwable)
                 }
             })
-        } catch (e: Throwable) {
-            Log.e("-- Deu ruim... --\n", "-- Erro --${e.message}")
+        } catch (throwable: Throwable) {
+            Log.e("-- Deu ruim... --\n", "-- Erro --${throwable.message}")
         }
     }
 }

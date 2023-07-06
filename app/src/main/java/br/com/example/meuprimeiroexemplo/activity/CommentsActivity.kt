@@ -3,10 +3,10 @@ package br.com.example.meuprimeiroexemplo.activity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ListView
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
 import br.com.example.meuprimeiroexemplo.R
-import br.com.example.meuprimeiroexemplo.adapter.CommentsAdapter
+import br.com.example.meuprimeiroexemplo.adapters.recyclerview.CommentsRecyclerAdapter
 import br.com.example.meuprimeiroexemplo.bootstrap.APIClient
 import br.com.example.meuprimeiroexemplo.debug.DebugActivity
 import br.com.example.meuprimeiroexemplo.model.Comments
@@ -38,7 +38,8 @@ open class CommentsActivity : DebugActivity() {
             override fun onAdLoaded() {
                 Toast.makeText(applicationContext, "Cara, o Ad carregou ;D", Toast.LENGTH_SHORT)
                     .show()
-                println("AD Carregou??")
+                println("AD Carregou")
+                Log.i("AD", "AD loaded")
             }
 
             override fun onAdFailedToLoad(adError: LoadAdError) {
@@ -78,7 +79,7 @@ open class CommentsActivity : DebugActivity() {
                     call: Call<List<Comments>>,
                     response: Response<List<Comments>>
                 ) {
-                    Toast.makeText(applicationContext, "deu certo mano...", Toast.LENGTH_LONG)
+                    Toast.makeText(applicationContext, "deu certo mano...", Toast.LENGTH_SHORT)
                         .show()
                     val postagens = response.body()
                     if (postagens != null) {
@@ -114,17 +115,13 @@ open class CommentsActivity : DebugActivity() {
     }
 
     //método
-    protected fun baseAdapter(
-        postId: Int, id: Int, nome: String,
-        email: String,
-        body: String
-    ) {
+    protected fun baseAdapter(postId: Int, id: Int, nome: String, email: String, body: String) {
         try {
             preencherObjetoLista(postId, id, nome, email, body)
 
-            val listViewPost = findViewById<ListView>(R.id.listViewComments)
-            val commentsAdapter = CommentsAdapter(applicationContext, comments)
-            listViewPost.adapter = commentsAdapter
+            val recyclerViewPost = findViewById<RecyclerView>(R.id.listViewComments)
+            val commentsRecyclerAdapter = CommentsRecyclerAdapter(applicationContext, comments)
+            recyclerViewPost.adapter = commentsRecyclerAdapter
         } catch (e: RuntimeException) {
             Toast.makeText(
                 applicationContext,
@@ -135,7 +132,9 @@ open class CommentsActivity : DebugActivity() {
     }
 
     private fun preencherObjetoLista(
-        postId: Int, id: Int, name: String,
+        postId: Int,
+        id: Int,
+        name: String,
         email: String,
         body: String
     ) {
@@ -144,7 +143,10 @@ open class CommentsActivity : DebugActivity() {
             comments.add(comment)
         } catch (e: RuntimeException) {
             Log.i("prencherObjetoLista\n\n\"", e.message ?: return)
-            Toast.makeText(applicationContext, " -- Erro -- ${e.message}", Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                applicationContext, " -- Erro -- ${e.message}",
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 }

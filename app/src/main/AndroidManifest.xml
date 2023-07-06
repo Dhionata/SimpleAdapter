@@ -27,12 +27,12 @@
         <activity android:name=".activity.PostActivity" />
         <activity android:name=".activity.PeopleActivity" />
         <activity android:name=".activity.CommentsActivity" />
-        <activity android:name=".activity.AddresActivity" />
+        <activity android:name=".activity.AddressActivity" />
         <activity android:name=".activity.UserActivity" />
         <activity android:name=".activity.PessoaActivity" />
         <activity
-            android:exported="true"
-            android:name=".activity.HomeActivity">
+            android:name=".activity.HomeActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

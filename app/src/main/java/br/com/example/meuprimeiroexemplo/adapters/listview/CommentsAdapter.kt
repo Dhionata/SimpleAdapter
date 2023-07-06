@@ -1,4 +1,4 @@
-package br.com.example.meuprimeiroexemplo.adapter
+package br.com.example.meuprimeiroexemplo.adapters.listview
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -17,7 +17,6 @@ import com.google.android.gms.ads.MobileAds
 
 class CommentsAdapter(private val context: Context, private val comments: List<Comments>) :
     BaseAdapter() {
-
     init {
         MobileAds.initialize(context)
     }

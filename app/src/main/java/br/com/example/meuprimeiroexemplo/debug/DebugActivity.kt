@@ -16,42 +16,58 @@ open class DebugActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.i(tag, "$className.onCreate() chamado: $savedInstanceState")
+        if (Log.isLoggable(tag, Log.INFO)) {
+            Log.i(tag, "$className.onCreate() chamado: $savedInstanceState")
+        }
     }
 
     override fun onStart() {
         super.onStart()
-        Log.i(tag, "$className.onStart() chamado.")
+        if (Log.isLoggable(tag, Log.INFO)) {
+            Log.i(tag, "$className.onStart() chamado.")
+        }
     }
 
     override fun onRestart() {
         super.onRestart()
-        Log.i(tag, "$className.onRestart() chamado.")
+        if (Log.isLoggable(tag, Log.INFO)) {
+            Log.i(tag, "$className.onRestart() chamado.")
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        Log.i(tag, "$className.onResume() chamado.")
+        if (Log.isLoggable(tag, Log.INFO)) {
+            Log.i(tag, "$className.onResume() chamado.")
+        }
     }
 
     override fun onPause() {
         super.onPause()
-        Log.i(tag, "$className.onPause() chamado.")
+        if (Log.isLoggable(tag, Log.INFO)) {
+            Log.i(tag, "$className.onPause() chamado.")
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        Log.i(tag, "$className.onSaveInstanceState() chamado.")
+        if (Log.isLoggable(tag, Log.INFO)) {
+            Log.i(tag, "$className.onSaveInstanceState() chamado.")
+        }
     }
 
     override fun onStop() {
         super.onStop()
-        Log.i(tag, "$className.onStop() chamado.")
+        if (Log.isLoggable(tag, Log.INFO)) {
+            Log.i(tag, "$className.onStop() chamado.")
+        }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i(tag, "$className.onDestroy() chamado.")
+        if (Log.isLoggable(tag, Log.INFO)) {
+            Log.i(tag, "$className.onDestroy() chamado.")
+        }
     }
 
     // Retorna o nome da classe sem o pacote

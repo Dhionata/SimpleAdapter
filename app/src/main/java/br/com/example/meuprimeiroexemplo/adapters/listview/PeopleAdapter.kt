@@ -1,4 +1,4 @@
-package br.com.example.meuprimeiroexemplo.adapter
+package br.com.example.meuprimeiroexemplo.adapters.listview
 
 import android.content.Context
 import android.util.Log
@@ -31,7 +31,7 @@ class PeopleAdapter(private val context: Context, private val people: List<Peopl
         val people = getItem(posicao)
 
         var converterVisualizacao = view
-        if (null == converterVisualizacao) {
+        if (converterVisualizacao == null) {
             converterVisualizacao =
                 LayoutInflater.from(context).inflate(R.layout.people_item_post, viewGroup, false)
         }
@@ -69,7 +69,7 @@ class PeopleAdapter(private val context: Context, private val people: List<Peopl
                 txtItemEyeColor.text = people.eye_color
                 txtItemBirthYear.text = people.birth_year
                 txtItemGender.text = people.gender
-                txtItemHomeWorld.text = people.homeworld
+                txtItemHomeWorld.text = people.`home-world`
                 txtItemFilms.text = people.films.size.toString()
                 txtItemSpecies.text = people.species.size.toString()
                 txtItemVehicles.text = people.vehicles.size.toString()
@@ -79,7 +79,7 @@ class PeopleAdapter(private val context: Context, private val people: List<Peopl
                 txtItemUrl.text = people.url
 
             } catch (e: Exception) {
-                Log.e("Vixi...", "Deu ruim...." + e.message)
+                Log.e("Vixi...", "Deu ruim.... ${e.message}")
                 Toast.makeText(context, "--Erro--${e.message}", Toast.LENGTH_LONG).show()
             }
         }

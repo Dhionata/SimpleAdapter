@@ -2,68 +2,68 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/colorPrimary"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".activity.HomeActivity">
 
     <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         ads:adSize="FULL_BANNER"
         ads:adUnitId="ca-app-pub-2668709174006054/3227399578"
         ads:layout_constraintBottom_toBottomOf="parent"
         ads:layout_constraintTop_toTopOf="@+id/btnAddres"
         ads:layout_constraintVertical_bias="1.0"
-        android:id="@+id/adView"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
         tools:layout_editor_absoluteX="0dp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        ads:layout_constraintTop_toTopOf="parent"
         android:id="@+id/btnAddres"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="exibir"
-        android:text="@string/addres" />
+        android:text="@string/addres"
+        ads:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        ads:layout_constraintTop_toBottomOf="@+id/btnAddres"
         android:id="@+id/btnPessoa"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="exibir"
-        android:text="@string/pessoa" />
+        android:text="@string/pessoa"
+        ads:layout_constraintTop_toBottomOf="@+id/btnAddres" />
 
     <androidx.appcompat.widget.AppCompatButton
-        ads:layout_constraintTop_toBottomOf="@+id/btnPessoa"
         android:id="@+id/btnUse"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="exibir"
-        android:text="@string/user" />
+        android:text="@string/user"
+        ads:layout_constraintTop_toBottomOf="@+id/btnPessoa" />
 
     <androidx.appcompat.widget.AppCompatButton
-        ads:layout_constraintTop_toBottomOf="@+id/btnUse"
         android:id="@+id/btnPost"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="exibir"
-        android:text="@string/post" />
+        android:text="@string/post"
+        ads:layout_constraintTop_toBottomOf="@+id/btnUse" />
 
     <androidx.appcompat.widget.AppCompatButton
-        ads:layout_constraintTop_toBottomOf="@+id/btnPost"
         android:id="@+id/btnComments"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="exibir"
-        android:text="@string/comments" />
+        android:text="@string/comments"
+        ads:layout_constraintTop_toBottomOf="@+id/btnPost" />
 
     <androidx.appcompat.widget.AppCompatButton
-        ads:layout_constraintTop_toBottomOf="@+id/btnComments"
         android:id="@+id/btnPeople"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="exibir"
-        android:text="@string/people" />
+        android:text="@string/people"
+        ads:layout_constraintTop_toBottomOf="@+id/btnComments" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

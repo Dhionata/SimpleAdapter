@@ -1,48 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:visibility="visible">
 
-    <LinearLayout
-        android:layout_height="match_parent"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtItemUserId"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
             android:textIsSelectable="true" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtItemTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
             android:textIsSelectable="true" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtItemBody"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
             android:textIsSelectable="true" />
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
             android:contentDescription="@string/bot_o_de_edi_o"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            app:srcCompat="@drawable/editar" />
+            app:srcCompat="@drawable/baseline_edit_note_24" />
 
-        <ImageButton
-            android:contentDescription="@string/bot_o_de_exclus_o"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnExcluir"
             android:layout_width="wrap_content"
-            app:srcCompat="@drawable/deletar" />
-    </LinearLayout>
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/bot_o_de_exclus_o"
+            app:srcCompat="@drawable/baseline_delete_forever_24" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.constraintlayout.widget.ConstraintLayout>
