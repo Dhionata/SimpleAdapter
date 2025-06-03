@@ -69,7 +69,7 @@ class PeopleAdapter(private val context: Context, private val people: List<Peopl
                 txtItemEyeColor.text = people.eye_color
                 txtItemBirthYear.text = people.birth_year
                 txtItemGender.text = people.gender
-                txtItemHomeWorld.text = people.`home-world`
+                txtItemHomeWorld.text = people.homeworld
                 txtItemFilms.text = people.films.size.toString()
                 txtItemSpecies.text = people.species.size.toString()
                 txtItemVehicles.text = people.vehicles.size.toString()

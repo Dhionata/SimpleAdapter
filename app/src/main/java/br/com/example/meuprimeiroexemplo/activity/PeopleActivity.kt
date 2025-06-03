@@ -40,38 +40,31 @@ class PeopleActivity : DebugActivity() {
             lista = peopleResource.get()
         } catch (e: Throwable) {
             Toast.makeText(
-                applicationContext,
-                "Cara, o retrofit não tá pegando não kk${e.message}",
-                Toast.LENGTH_LONG
+                applicationContext, "Cara, o retrofit não tá pegando não kk${e.message}", Toast.LENGTH_LONG
             ).show()
-            Log.e(PeopleActivity::listarPosts.toString(), "${e.message}")
+            Log.e(PeopleActivity::listarPosts.name, "${e.message}")
         }
         try {
             lista?.enqueue(object : Callback<DefaultModel?> {
                 override fun onResponse(
-                    call: Call<DefaultModel?>,
-                    response: Response<DefaultModel?>
+                    call: Call<DefaultModel?>, response: Response<DefaultModel?>
                 ) {
                     // O método onResponse retorna os dados do recurso(resource) consumido.
                     try {
                         val pessoas = response.body()?.results
-                        val peopleRecyclerAdapter =
-                            PeopleRecyclerAdapter(applicationContext, pessoas)
+                        val peopleRecyclerAdapter = PeopleRecyclerAdapter(applicationContext, pessoas)
                         val recyclerViewPeople: RecyclerView = findViewById(R.id.peopleList)
                         recyclerViewPeople.adapter = peopleRecyclerAdapter
                         val button = findViewById<Button>(R.id.usarAPI)
                         button.isClickable = false
                     } catch (throwable: Throwable) {
                         Toast.makeText(
-                            applicationContext,
-                            "Ocorreu um erro no processamento.${throwable.message}",
-                            Toast.LENGTH_LONG
+                            applicationContext, "Ocorreu um erro no processamento.${throwable.message}", Toast.LENGTH_LONG
                         ).show()
                         Log.e(
-                            PeopleActivity::listarPosts.toString(), "Deu ruim...${
+                            PeopleActivity::listarPosts.name, "Deu ruim...${
                                 throwable.message
-                            }",
-                            throwable
+                            }", throwable
                         )
                     }
                 }
@@ -79,13 +72,10 @@ class PeopleActivity : DebugActivity() {
                 override fun onFailure(call: Call<DefaultModel?>, throwable: Throwable) {
                     //Método responsável pelos erros.
                     Toast.makeText(
-                        applicationContext,
-                        " Ocorreu um erro no serviço.${throwable.message}",
-                        Toast.LENGTH_LONG
+                        applicationContext, " Ocorreu um erro no serviço.${throwable.message}", Toast.LENGTH_LONG
                     ).show()
                     Log.e(
-                        PeopleActivity::listarPosts.toString(),
-                        "deu ruim dnv...${throwable.message}"
+                        PeopleActivity::listarPosts.toString(), "deu ruim dnv...${throwable.message}"
                     )
                 }
             })

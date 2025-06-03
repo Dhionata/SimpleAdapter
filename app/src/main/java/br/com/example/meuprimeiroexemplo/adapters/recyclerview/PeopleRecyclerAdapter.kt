@@ -58,7 +58,7 @@ class PeopleRecyclerAdapter(
                 txtItemEyeColor.text = person.eye_color
                 txtItemBirthYear.text = person.birth_year
                 txtItemGender.text = person.gender
-                txtItemHomeWorld.text = person.`home-world`
+                txtItemHomeWorld.text = person.homeworld
                 txtItemFilms.text = person.films.size.toString()
                 txtItemSpecies.text = person.species.size.toString()
                 txtItemVehicles.text = person.vehicles.size.toString()
