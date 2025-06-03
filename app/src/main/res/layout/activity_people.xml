@@ -11,12 +11,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/usarAPI"
-            android:layout_width="match_parent"
+        <ProgressBar
+            android:id="@+id/peopleProgressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="listarPosts"
-            android:text="@string/usar_api" />
+            android:layout_gravity="center"
+            android:visibility="gone" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/peopleList"

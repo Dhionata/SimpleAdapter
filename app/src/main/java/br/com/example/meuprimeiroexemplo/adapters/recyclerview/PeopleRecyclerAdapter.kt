@@ -9,11 +9,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import br.com.example.meuprimeiroexemplo.R
-import br.com.example.meuprimeiroexemplo.model.People
+import br.com.example.meuprimeiroexemplo.model.People // Certifique-se que o import do modelo People está correto
 
 class PeopleRecyclerAdapter(
-    private val context: Context,
-    private val people: List<People>?
+    private val context: Context, private val peopleList: MutableList<People>
 ) : RecyclerView.Adapter<PeopleRecyclerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,12 +21,14 @@ class PeopleRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val person = (people ?: return)[position]
-        holder.bind(person)
+        if (position < peopleList.size) {
+            val person = peopleList[position]
+            holder.bind(person)
+        }
     }
 
     override fun getItemCount(): Int {
-        return people?.size ?: 0
+        return peopleList.size
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -66,13 +67,34 @@ class PeopleRecyclerAdapter(
                 txtItemCreated.text = person.created
                 txtItemEdited.text = person.edited
                 txtItemUrl.text = person.url
-                if (Log.isLoggable(ViewHolder::bind.toString(), Log.INFO)) {
-                    Log.i(ViewHolder::bind.toString(), person.toString())
-                }
+
+                // Log
+                Log.i("PeopleAdapterVH", "Binding data for: ${person.name}")
+
             } catch (e: Exception) {
-                Log.e("Vixi...", "Deu ruim.... ${e.message}")
-                Toast.makeText(context, "--Erro--${e.message}", Toast.LENGTH_LONG).show()
+                Log.e("PeopleAdapterVH", "Error binding data for ${person.name}: ${e.message}", e)
+                Toast.makeText(context, "Erro ao exibir dados: ${e.message}", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    /**
+     * Adiciona uma nova lista de pessoas aos dados existentes e notifica o adapter.
+     * Este método será chamado pela Activity quando novos dados de paginação forem carregados.
+     */
+    fun addData(newPeople: List<People>) {
+        val previousSize = peopleList.size
+        peopleList.addAll(newPeople)
+        notifyItemRangeInserted(previousSize, newPeople.size)
+    }
+
+    /**
+     * Limpa todos os dados do adapter e notifica.
+     * Útil para uma nova busca ou "pull-to-refresh".
+     */
+    fun clearData() {
+        val previousSize = peopleList.size
+        peopleList.clear()
+        notifyItemRangeRemoved(0, previousSize) // Ou notifyDataSetChanged() se preferir uma notificação global
     }
 }
